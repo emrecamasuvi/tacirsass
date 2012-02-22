@@ -306,6 +306,7 @@
 // ------------------
 
 @media (min-width: 1200px) {
+  body  {background: red;}
 
   // Fixed grid
   @include gridSystem-generate(12, 70px, 30px);

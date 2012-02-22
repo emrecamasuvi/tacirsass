@@ -1,14 +1,4 @@
-// MIXINS
-// Snippets of reusable CSS to develop faster and keep code readable
-// -----------------------------------------------------------------
-
-
-// UTILITY MIXINS
-// -------------------------------------------------
-
 // Clearfix
-// --------
-// For clearing floats like a boss h5bp.com/q
 @mixin clearfix() {
   *zoom: 1;
   &:before,
@@ -21,7 +11,7 @@
   }
 }
 
-// Webkit-style focus
+// Webkit inputlara odaklandiginda
 // ------------------
 @mixin tab-focus() {
   // Default
@@ -31,8 +21,7 @@
   outline-offset: -2px;
 }
 
-// Center-align a block level element
-// ----------------------------------
+// block elementi ortala
 @mixin center-block() {
   display: block;
   margin-left: auto;
@@ -40,7 +29,6 @@
 }
 
 // IE7 inline-block
-// ----------------
 @mixin ie7-inline-block() {
   *display: inline; /* IE7 inline-block hack */
   *zoom: 1;
@@ -68,7 +56,7 @@
   }
 }
 
-// Sizing shortcuts
+// size ile istediginiz width height verebilirsiniz
 // -------------------------
 @mixin size($height: 5px, $width: 5px) {
   width: $width;
@@ -78,7 +66,7 @@
   @include size($size, $size);
 }
 
-// Placeholder text
+// Placeholder rengi
 // -------------------------
 @mixin placeholder($color: $placeholderText) {
   :-moz-placeholder {
@@ -89,9 +77,9 @@
   }
 }
 
-// Text overflow
+// Text tasarsa sonuna uc nokta ekle
 // -------------------------
-// Requires inline-block or block for proper styling
+// Elementin inline-block veya block olmasi lazim
 @mixin text-overflow() {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -103,43 +91,36 @@
 // FONTS
 // --------------------------------------------------
 
-// Font Stacks
+// Font kisayolu
 @mixin font-shorthand($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
   font-size: $size;
   font-weight: $weight;
   line-height: $lineHeight;
 }
+// serif fontlar genelde buyuk puntolu yerlere, basliklara gider
 @mixin font-serif($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
   font-family: Georgia, "Times New Roman", Times, serif;
   @include font-shorthand($size, $weight, $lineHeight);
 }
+// sans-serif fontlar her yerde kullanilir
 @mixin font-sans-serif($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   @include font-shorthand($size, $weight, $lineHeight);
 }
+// monospace fontlar genelde hesaplamalar, rakamlar ve kodlar icin kullanilir
 @mixin font-family-monospace {
   font-family: Menlo, Monaco, "Courier New", monospace;
 }
+// monospace fontlar ince ayar
 @mixin font-monospace($size: $baseFontSize, $weight: normal, $lineHeight: $baseLineHeight) {
   @include font-family-monospace;
   @include font-shorthand($size, $weight, $lineHeight);
 }
 
-
-
-
-
-
-
-
-
-
-
-
 // GRID SYSTEM
 // --------------------------------------------------
 
-// Site container
+// Site genisligi
 // -------------------------
 @mixin container-fixed() {
   width: $gridRowWidth;

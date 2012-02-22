@@ -1,17 +1,10 @@
-// VARIABLES
-// Variables to customize the look and feel of Bootstrap
-// -----------------------------------------------------
+// DEGISKENLER
 
-
-
-// GLOBAL VALUES
-// --------------------------------------------------
-
-// Links
+// Linkler
 $linkColor:             #08c !default;
 $linkColorHover:        darken($linkColor, 15) !default;
 
-// Grays
+// Griler
 $black:                 #000 !default;
 $grayDarker:            #222 !default;
 $grayDark:              #333 !default;
@@ -20,7 +13,7 @@ $grayLight:             #999 !default;
 $grayLighter:           #eee !default;
 $white:                 #fff !default;
 
-// Accent colors
+// Ara renkler
 $blue:                  #049cdb !default;
 $blueDark:              #0064cd !default;
 $green:                 #46a546 !default;
@@ -30,7 +23,7 @@ $orange:                #f89406 !default;
 $pink:                  #c3325f !default;
 $purple:                #7a43b6 !default;
 
-// Typography
+// Tipografi
 $baseFontSize:          13px !default;
 $baseFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $baseLineHeight:        18px !default;
