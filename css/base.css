@@ -1880,25 +1880,3 @@ a.thumbnail:hover { border-color: #0088cc; -webkit-box-shadow: 0 1px 4px rgba(0,
 
 /* line 21, ../sass/_utilities.scss */
 .invisible { visibility: hidden; }
-
-/* line 5, ../sass/screen.scss */
-.container-fluid { padding-left: 20px; padding-right: 20px; *zoom: 1; }
-/* line 15, ../sass/_mixins.scss */
-.container-fluid:before, .container-fluid:after { display: table; content: ""; }
-/* line 19, ../sass/_mixins.scss */
-.container-fluid:after { clear: both; }
-
-/* line 11, ../sass/screen.scss */
-#navbar { width: 480px; margin: 0 auto; *zoom: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-/* line 15, ../sass/_mixins.scss */
-#navbar:before, #navbar:after { display: table; content: ""; }
-/* line 19, ../sass/_mixins.scss */
-#navbar:after { clear: both; }
-/* line 13, ../sass/screen.scss */
-#navbar li { float: left; display: inline-block; list-style-type: none; margin-left: 24px; padding: 48px; }
-/* line 15, ../sass/screen.scss */
-#navbar li:hover { background: #ff1900; }
-/* line 16, ../sass/screen.scss */
-#navbar li a { display: block; width: 120px; height: 120px; color: #c33; background-color: #ccc; -moz-border-radius-topleft: 8px; -webkit-border-top-left-radius: 8px; -o-border-top-left-radius: 8px; -ms-border-top-left-radius: 8px; border-top-left-radius: 8px; -moz-border-radius-topright: 8px; -webkit-border-top-right-radius: 8px; -o-border-top-right-radius: 8px; -ms-border-top-right-radius: 8px; border-top-right-radius: 8px; color: #0088cc; }
-/* line 18, ../sass/screen.scss */
-#navbar li a:hover { background-color: #ffc; }

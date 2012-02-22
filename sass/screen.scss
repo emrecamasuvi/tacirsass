@@ -1,15 +1,22 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+// Degiskenler baseden gelir
+@import "base";
 
-@import "compass/reset";
+// Fluid layouts (left aligned, with sidebar, min- & max-width content)
+.container-fluid {
+  padding-left: $gridGutterWidth;
+  padding-right: $gridGutterWidth;
+  @include clearfix();
+}
+
 #navbar {
-  width: 50%; margin: 0 auto;
+  width: ($gridColumnWidth*8); margin: 0 auto; @include clearfix; @include text-overflow;
   li {
-    float:left; display: inline-block
+    float:left; display: inline-block; list-style-type: none; margin-left: 24px; padding: 48px;
+    &:hover {background: mix(red, yellow, 90%)}
     a {
-      padding: 2px 12px;
-    }
+    	display: block; width: 120px; height:120px; color: #c33; background-color: #ccc; @include border-top-radius(8px); color: $linkColor;
+    	&:hover {background-color: #ffc}
+     }
+     
   }
 }

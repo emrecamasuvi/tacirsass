@@ -6,33 +6,57 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
- * Further development by Emre Camasuvi
  */
-/* line 17, ../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+/* line 17, ../sass/_reset.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
 
-/* line 20, ../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-body { line-height: 1; }
+/* line 26, ../sass/_reset.scss */
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
 
-/* line 22, ../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-ol, ul { list-style: none; }
+/* line 35, ../sass/_reset.scss */
+audio:not([controls]) { display: none; }
 
-/* line 24, ../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-table { border-collapse: collapse; border-spacing: 0; }
+/* line 42, ../sass/_reset.scss */
+html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 
-/* line 26, ../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-caption, th, td { text-align: left; font-weight: normal; vertical-align: middle; }
+/* line 48, ../sass/_reset.scss */
+a:focus { outline: thin dotted #333; outline: 5px auto -webkit-focus-ring-color; outline-offset: -2px; }
 
-/* line 28, ../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-q, blockquote { quotes: none; }
-/* line 101, ../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-q:before, q:after, blockquote:before, blockquote:after { content: ""; content: none; }
+/* line 53, ../sass/_reset.scss */
+a:hover, a:active { outline: 0; }
 
-/* line 30, ../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-a img { border: none; }
+/* line 61, ../sass/_reset.scss */
+sub, sup { position: relative; font-size: 75%; line-height: 0; vertical-align: baseline; }
 
-/* line 114, ../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary { display: block; }
+/* line 67, ../sass/_reset.scss */
+sup { top: -0.5em; }
+
+/* line 70, ../sass/_reset.scss */
+sub { bottom: -0.25em; }
+
+/* line 77, ../sass/_reset.scss */
+img { max-width: 100%; height: auto; border: 0; -ms-interpolation-mode: bicubic; }
+
+/* line 91, ../sass/_reset.scss */
+button, input, select, textarea { margin: 0; font-size: 100%; vertical-align: middle; }
+
+/* line 97, ../sass/_reset.scss */
+button, input { *overflow: visible; line-height: normal; }
+
+/* line 102, ../sass/_reset.scss */
+button::-moz-focus-inner, input::-moz-focus-inner { padding: 0; border: 0; }
+
+/* line 109, ../sass/_reset.scss */
+button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; }
+
+/* line 113, ../sass/_reset.scss */
+input[type="search"] { -webkit-appearance: textfield; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; }
+
+/* line 120, ../sass/_reset.scss */
+input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; }
+
+/* line 123, ../sass/_reset.scss */
+textarea { overflow: auto; vertical-align: top; }
 
 /* line 9, ../sass/_scaffolding.scss */
 body { margin: 0; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; line-height: 18px; color: #333333; background-color: white; }
@@ -1880,25 +1904,3 @@ a.thumbnail:hover { border-color: #0088cc; -webkit-box-shadow: 0 1px 4px rgba(0,
 
 /* line 21, ../sass/_utilities.scss */
 .invisible { visibility: hidden; }
-
-/* line 5, ../sass/screen.scss */
-.container-fluid { padding-left: 20px; padding-right: 20px; *zoom: 1; }
-/* line 15, ../sass/_mixins.scss */
-.container-fluid:before, .container-fluid:after { display: table; content: ""; }
-/* line 19, ../sass/_mixins.scss */
-.container-fluid:after { clear: both; }
-
-/* line 11, ../sass/screen.scss */
-#navbar { width: 480px; margin: 0 auto; *zoom: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-/* line 15, ../sass/_mixins.scss */
-#navbar:before, #navbar:after { display: table; content: ""; }
-/* line 19, ../sass/_mixins.scss */
-#navbar:after { clear: both; }
-/* line 13, ../sass/screen.scss */
-#navbar li { float: left; display: inline-block; list-style-type: none; margin-left: 24px; padding: 48px; }
-/* line 15, ../sass/screen.scss */
-#navbar li:hover { background: #ff1900; }
-/* line 16, ../sass/screen.scss */
-#navbar li a { display: block; width: 120px; height: 120px; color: #c33; background-color: #ccc; -moz-border-radius-topleft: 8px; -webkit-border-top-left-radius: 8px; -o-border-top-left-radius: 8px; -ms-border-top-left-radius: 8px; border-top-left-radius: 8px; -moz-border-radius-topright: 8px; -webkit-border-top-right-radius: 8px; -o-border-top-right-radius: 8px; -ms-border-top-right-radius: 8px; border-top-right-radius: 8px; color: #0088cc; }
-/* line 18, ../sass/screen.scss */
-#navbar li a:hover { background-color: #ffc; }
