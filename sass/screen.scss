@@ -1,0 +1,22 @@
+// Degiskenler baseden gelir
+@import "base";
+
+// Fluid layouts (left aligned, with sidebar, min- & max-width content)
+.container-fluid {
+  padding-left: $gridGutterWidth;
+  padding-right: $gridGutterWidth;
+  @include clearfix();
+}
+
+#navbar {
+  width: ($gridColumnWidth*8); margin: 0 auto; @include clearfix; @include text-overflow;
+  li {
+    float:left; display: inline-block; list-style-type: none; margin-left: 24px; padding: 48px;
+    &:hover {background: mix(red, yellow, 90%)}
+    a {
+    	display: block; width: 120px; height:120px; color: #c33; background-color: #ccc; @include border-top-radius(8px); color: $linkColor;
+    	&:hover {background-color: #ffc}
+     }
+     
+  }
+}
