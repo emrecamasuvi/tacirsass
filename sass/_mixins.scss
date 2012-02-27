@@ -117,10 +117,12 @@
   @include font-shorthand($size, $weight, $lineHeight);
 }
 
+
+
 // GRID SYSTEM
 // --------------------------------------------------
 
-// Site genisligi
+// Site container
 // -------------------------
 @mixin container-fixed() {
   width: $gridRowWidth;
@@ -132,14 +134,14 @@
 // Le grid system
 // -------------------------
 @mixin gridSystem-columns ($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $columns) {
-	width: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1));
+  width: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1));
 } 
 @mixin gridSystem-offset($gridColumnWidth, $gridGutterWidth, $columns) {
-	margin-left: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1)) + ($gridGutterWidth * 2);
+  margin-left: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1)) + ($gridGutterWidth * 2);
 }
 @mixin gridSystem-gridColumn($gridGutterWidth) {
-	float: left;
-	margin-left: $gridGutterWidth;
+  float: left;
+  margin-left: $gridGutterWidth;
 }
 
 // Take these values and mixins, and make 'em do their thang
@@ -263,6 +265,7 @@
   margin-left: $gridGutterWidth;
   width: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1));
 }
+
 
 
 

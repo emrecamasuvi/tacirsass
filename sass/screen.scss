@@ -1,15 +1,37 @@
 // Degiskenler baseden gelir
 @import "base";
 
+body  {@include font-sans-serif}
 #navbar {
   @include center-block;  margin: 0 auto; @include clearfix; @include text-overflow;
   li {
     float:left; display: inline-block; list-style-type: none; margin-left: 24px; padding: 48px;
-    &:hover {background: mix(red, yellow, 90%)}
+    &:hover {background: mix(red, yellow, 90%); padding: round(48.5px);}
     a {
-    	display: block; @include size(120px,120px); color: #c33; background-color: #ccc; @include border-top-radius(8px); @include font-shorthand;
-    	&:hover {background-color: #ffc}
+    	display: block; @include size(120px,120px); color: #c33; background-color: #ccc; @include border-top-radius(3px); @include font-shorthand;
      }
-     
   }
+}
+#bjk  {
+  @extend .container-fluid;
+}
+#a1, #a2, #a3, #a4, #a5, #a6 {
+  @include no-bullets;
+  color: $font-color;
+  @extend .row-fluid;
+}
+
+#a1 {
+  @include fluidGridSystem-columns(40px, 72px, 2); // yani 40px ara bosluk, 72px ara doldurma payi, 2 kolon boyunda
+  background: mix(blue, red, 40%);
+}
+#a2 {
+  @include fluidGridSystem-columns(12px, 144px, 3);
+  background: mix(blue, yellow, 40%);
+}
+#a3 {
+  background: mix(green, yellow, 40%);
+}
+#a4 {
+  background: mix(gray, yellow, 60%);
 }

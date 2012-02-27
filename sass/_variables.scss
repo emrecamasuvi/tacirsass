@@ -11,6 +11,8 @@ $grayDark:              #333 !default;
 $gray:                  #555 !default;
 $grayLight:             #999 !default;
 $grayLighter:           #eee !default;
+$whiteDarker:			#f4f4f4 !default;
+$whiteDark:				#f0f0f0 !default;
 $white:                 #fff !default;
 
 // Ara renkler
@@ -88,6 +90,7 @@ $infoBorder:              darken(adjust-hue($infoBackground, -10), 7%) !default;
 
 // GRID
 // ----
+
 
 // Default 940px grid
 $gridColumns:             12 !default;

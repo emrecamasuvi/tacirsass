@@ -250,11 +250,6 @@ textarea[class*="span"],
 
 
 
-// GRID SIZING FOR INPUTS
-// ----------------------
-
-@include inputGridSystem-generate($gridColumns, $gridColumnWidth, $gridGutterWidth);
-
 
 
 

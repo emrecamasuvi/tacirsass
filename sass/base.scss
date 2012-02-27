@@ -14,9 +14,8 @@
 @import "compass/css3";
 @import "compass/utilities";
 
-
-// Core variables and mixins
-@import "responsive";
+@import "variables"; // Modify this for custom colors, font-sizes, etc
+@import "mixins";
 
 // Grid system and page structure
 @import "partials/scaffolding";
@@ -65,4 +64,5 @@
 @import "partials/utilities"; // Has to be last to override when necessary
 $experimental-support-for-khtml:false;
 $experimental-support-for-ms:false;
-$font-color             : #333;
+$legacy-support-for-ie6:false;
+$font-color: adjust-lightness(blue, -24%);
