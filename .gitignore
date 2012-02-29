@@ -1,7 +1,7 @@
 .DS_Store
 .sass-cache
-css
-normalizer
+/css
+/normalizer
 #
 *.swo
 *.swp
