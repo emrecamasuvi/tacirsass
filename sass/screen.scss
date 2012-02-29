@@ -13,12 +13,12 @@ body  {@include font-sans-serif}
   }
 }
 #bjk  {
-  @extend .container-fluid;
+  @extend .container;
 }
 #a1, #a2, #a3, #a4, #a5, #a6 {
   @include no-bullets;
   color: $font-color;
-  @extend .row-fluid;
+  @extend .row-fluid;    
 }
 
 #a1 {
@@ -30,6 +30,7 @@ body  {@include font-sans-serif}
   background: mix(blue, yellow, 40%);
 }
 #a3 {
+  @include gridSystem-generate($gridColumns, $gridColumnWidth, $gridGutterWidth);
   background: mix(green, yellow, 40%);
 }
 #a4 {
