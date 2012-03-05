@@ -1,4 +1,4 @@
-// Forms.less
+// Forms.scss
 // Base styles for various input types, form layouts, and states
 // -------------------------------------------------------------
 
@@ -42,7 +42,7 @@ input,
 button,
 select,
 textarea {
-  @include font-sans-serif($baseFontSize,normal,$baseLineHeight);
+  @include font-shorthand(); // Set size, weight, line-height here
 }
 input,
 button,
@@ -116,9 +116,9 @@ input[type="file"] {
 }
 
 // Help out input buttons
-input[type=button],
-input[type=reset],
-input[type=submit] {
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
   width: auto;
   height: auto;
 }
@@ -191,6 +191,7 @@ input[type="hidden"] {
 .radio.inline,
 .checkbox.inline {
   display: inline-block;
+  padding-top: 5px;
   margin-bottom: 0;
   vertical-align: middle;
 }
@@ -216,7 +217,7 @@ textarea:focus {
   $shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
   @include box-shadow($shadow);
   outline: 0;
-  outline: thin dotted \9; /* IE6-8 */
+  outline: thin dotted \9; /* IE6-9 */
 }
 input[type="file"]:focus,
 input[type="radio"]:focus,
@@ -500,7 +501,7 @@ legend + .control-group {
     @include clearfix();
   }
   // Float the labels left
-  .control-group > label {
+  .control-label {
     float: left;
     width: 140px;
     padding-top: 5px;

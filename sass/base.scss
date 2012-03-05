@@ -9,13 +9,16 @@
  * Further development by Emre Camasuvi
  */
 
+// yeni reset normalize
+@import "partials/normalize";
+
 // compass kutuphanesinden gelenler
-@import "compass/reset";
 @import "compass/css3";
 @import "compass/utilities";
 
-@import "variables"; // Modify this for custom colors, font-sizes, etc
+@import "variables";
 @import "mixins";
+@import "responsive"; // esnek web
 
 // Grid system and page structure
 @import "partials/scaffolding";
@@ -65,4 +68,3 @@
 $experimental-support-for-khtml:false;
 $experimental-support-for-ms:false;
 $legacy-support-for-ie6:false;
-$font-color: adjust-lightness(blue, -24%);

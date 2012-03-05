@@ -19,8 +19,6 @@
 @import "variables"; // Modify this for custom colors, font-sizes, etc
 @import "mixins";
 
-
-
 // RESPONSIVE CLASSES
 // ------------------
 
@@ -37,6 +35,11 @@
 // ---------------------
 
 @media (max-width: 480px) {
+
+  .row {
+    max-width: 480px;
+  }
+
 
   // Smooth out the collapsing/expanding nav
   .nav-collapse {
@@ -155,8 +158,19 @@
 // ----------------------------------
 
 @media (min-width: 768px) and (max-width: 979px) {
+  .row {
+    max-width: 979px;
+    min-width: 768px;
+  }
 
-
+/*
+  // Fixed grid
+  @include gridSystem-generate(12, 42px, 20px);
+  // Fluid grid
+  @include fluidGridSystem-generate(12, 5.801104972%, 2.762430939%);
+  // Input grid
+  @include inputGridSystem-generate(12, 42px, 20px);
+*/
 
 }
 
@@ -169,6 +183,9 @@
   // UNFIX THE TOPBAR
   // ----------------
   // Remove any padding from the body
+  .row {
+  max-width: 979px;
+  }
   body {
     padding-top: 0;
   }
@@ -291,6 +308,9 @@
   .nav-collapse.collapse {
     height: auto !important;
   }
+  .row {
+  min-width: 980px;
+  }
 }
 
 
@@ -300,6 +320,14 @@
 
 @media (min-width: 1200px) {
 
+/*
+  // Fixed grid
+  @include gridSystem-generate(12, 70px, 30px);
+  // Fluid grid
+  @include fluidGridSystem-generate(12, 5.982905983%, 2.564102564%);
+  // Input grid
+  @include inputGridSystem-generate(12, 70px, 30px);
+*/
 
   // Thumbnails
   .thumbnails {

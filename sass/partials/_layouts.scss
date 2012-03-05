@@ -1,9 +1,10 @@
 // sabit yuksekli yapi
 // muhtemelen kullanilmayacak
+/*
 .container {
   @include container-fixed();
 }
-
+*/
 // akiskan yapi genellikle bunu kullanacagiz
 .container-fluid {
   padding-left: $gridGutterWidth;

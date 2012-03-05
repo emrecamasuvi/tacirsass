@@ -25,7 +25,6 @@
   cursor: pointer;
 
   // Give IE7 some love
-  @include reset-filter();
   @include ie7-restore-left-whitespace();
 }
 

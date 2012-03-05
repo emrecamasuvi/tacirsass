@@ -1,8 +1,15 @@
 // GRID SYSTEM
 // -----------
 
-// Fixed (940px)
-@include gridSystem-generate($gridColumns, $gridColumnWidth, $gridGutterWidth);
+// Sabit yapi
+//@include gridSystem-generate($gridColumns, $gridColumnWidth, $gridGutterWidth);
 
-// Fluid (940px)
-@include fluidGridSystem-generate($gridColumns, $fluidGridColumnWidth, $fluidGridGutterWidth);
+// Esnek yapi
+//@include fluidGridSystem-generate($gridColumns, $fluidGridColumnWidth, $fluidGridGutterWidth);
+
+.row {
+  width: 100%;
+  margin: 0 auto;
+  .row {min-width: 0}
+  @include clearfix;
+}
