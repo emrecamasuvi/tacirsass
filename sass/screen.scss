@@ -30,7 +30,9 @@ $ax: 6;
 }
 #bjk ul {@extend .row;}
 
-#a1 {@include col(4); @include start(2)}
+#a1 {@include col(4); @include start(2); @extend .row;}
+#a1 p {@include col(4);}
+#a1 p:nth-child(2) {@include pull(4);}
 #a2 {@include col(3); @include start(1)}
 
 .one {@include col(1);}

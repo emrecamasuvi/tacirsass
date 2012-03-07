@@ -7,9 +7,3 @@
 // Esnek yapi
 //@include fluidGridSystem-generate($gridColumns, $fluidGridColumnWidth, $fluidGridGutterWidth);
 
-.row {
-  width: 100%;
-  margin: 0 auto;
-  .row {min-width: 0}
-  @include clearfix;
-}

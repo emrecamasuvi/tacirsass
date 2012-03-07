@@ -6,8 +6,3 @@
 }
 */
 // akiskan yapi genellikle bunu kullanacagiz
-.container-fluid {
-  padding-left: $gridGutterWidth;
-  padding-right: $gridGutterWidth;
-  @include clearfix();
-}

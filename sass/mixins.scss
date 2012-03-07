@@ -298,12 +298,10 @@
 
 @mixin push($soldan) {
   left: ($fluidGridColumnWidth * $soldan) + ($fluidGridGutterWidth * ($soldan));
-  &:last-child {float:right}
 }
 
 @mixin pull($sagdan) {
   right: ($fluidGridColumnWidth * $sagdan) + ($fluidGridGutterWidth * ($sagdan));
-  &:last-child {float:right}
 }
 
 @mixin centered{
