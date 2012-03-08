@@ -16,9 +16,8 @@
 @import "compass/css3";
 @import "compass/utilities";
 
-@import "variables";
-@import "mixins";
-@import "responsive"; // esnek web
+// esnek web
+@import "responsive";
 
 // Grid system and page structure
 @import "partials/scaffolding";

@@ -188,6 +188,7 @@ textarea { overflow: auto; /* 1 */ vertical-align: top; /* 2 */ }
 /* line 432, ../sass/partials/_normalize.scss */
 table { border-collapse: collapse; border-spacing: 0; }
 
+/* clearfix */
 /*
  * Bootstrap Responsive v2.0.1
  *
@@ -246,66 +247,64 @@ table { border-collapse: collapse; border-spacing: 0; }
   /* line 152, ../sass/responsive.scss */
   .row > [class*="span"], .row-fluid > [class*="span"] { float: none; display: block; width: auto; margin: 0; } }
 @media (min-width: 768px) and (max-width: 979px) { /* line 166, ../sass/responsive.scss */
-  .row { max-width: 979px; min-width: 768px; }
-  /* /* Fixed grid */ @include gridSystem-generate(12, 42px, 20px); /* Fluid grid */ @include fluidGridSystem-generate(12, 5.801104972%, 2.762430939%); /* Input grid */ @include inputGridSystem-generate(12, 42px, 20px); */ }
-@media (max-width: 979px) { /* line 191, ../sass/responsive.scss */
+  .row { max-width: 979px; min-width: 768px; } }
+@media (max-width: 979px) { /* line 182, ../sass/responsive.scss */
   .row { max-width: 979px; }
-  /* line 194, ../sass/responsive.scss */
+  /* line 185, ../sass/responsive.scss */
   body { padding-top: 0; }
-  /* line 198, ../sass/responsive.scss */
+  /* line 189, ../sass/responsive.scss */
   .navbar-fixed-top { position: static; margin-bottom: 18px; }
-  /* line 202, ../sass/responsive.scss */
+  /* line 193, ../sass/responsive.scss */
   .navbar-fixed-top .navbar-inner { padding: 5px; }
-  /* line 205, ../sass/responsive.scss */
+  /* line 196, ../sass/responsive.scss */
   .navbar .container { width: auto; padding: 0; }
-  /* line 210, ../sass/responsive.scss */
+  /* line 201, ../sass/responsive.scss */
   .navbar .brand { padding-left: 10px; padding-right: 10px; margin: 0 0 0 -5px; }
-  /* line 216, ../sass/responsive.scss */
+  /* line 207, ../sass/responsive.scss */
   .navbar .nav-collapse { clear: left; }
-  /* line 220, ../sass/responsive.scss */
+  /* line 211, ../sass/responsive.scss */
   .navbar .nav { float: none; margin: 0 0 9px; }
-  /* line 224, ../sass/responsive.scss */
+  /* line 215, ../sass/responsive.scss */
   .navbar .nav > li { float: none; }
-  /* line 227, ../sass/responsive.scss */
+  /* line 218, ../sass/responsive.scss */
   .navbar .nav > li > a { margin-bottom: 2px; }
-  /* line 230, ../sass/responsive.scss */
+  /* line 221, ../sass/responsive.scss */
   .navbar .nav > .divider-vertical { display: none; }
-  /* line 233, ../sass/responsive.scss */
+  /* line 224, ../sass/responsive.scss */
   .navbar .nav .nav-header { color: #999999; text-shadow: none; }
-  /* line 239, ../sass/responsive.scss */
+  /* line 230, ../sass/responsive.scss */
   .navbar .nav > li > a, .navbar .dropdown-menu a { padding: 6px 15px; font-weight: bold; color: #999999; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; }
-  /* line 245, ../sass/responsive.scss */
+  /* line 236, ../sass/responsive.scss */
   .navbar .dropdown-menu li + li a { margin-bottom: 2px; }
-  /* line 249, ../sass/responsive.scss */
+  /* line 240, ../sass/responsive.scss */
   .navbar .nav > li > a:hover, .navbar .dropdown-menu a:hover { background-color: #222222; }
-  /* line 253, ../sass/responsive.scss */
+  /* line 244, ../sass/responsive.scss */
   .navbar .dropdown-menu { position: static; top: auto; left: auto; float: none; display: block; max-width: none; margin: 0 15px; padding: 0; background-color: transparent; border: none; -webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; }
-  /* line 268, ../sass/responsive.scss */
+  /* line 259, ../sass/responsive.scss */
   .navbar .dropdown-menu:before, .navbar .dropdown-menu:after { display: none; }
-  /* line 271, ../sass/responsive.scss */
+  /* line 262, ../sass/responsive.scss */
   .navbar .dropdown-menu .divider { display: none; }
-  /* line 276, ../sass/responsive.scss */
+  /* line 267, ../sass/responsive.scss */
   .navbar-form, .navbar-search { float: none; padding: 9px 15px; margin: 9px 0; border-top: 1px solid #222222; border-bottom: 1px solid #222222; -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1); -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1); }
-  /* line 286, ../sass/responsive.scss */
+  /* line 277, ../sass/responsive.scss */
   .navbar .nav.pull-right { float: none; margin-left: 0; }
-  /* line 291, ../sass/responsive.scss */
+  /* line 282, ../sass/responsive.scss */
   .navbar-static .navbar-inner { padding-left: 10px; padding-right: 10px; }
-  /* line 296, ../sass/responsive.scss */
+  /* line 287, ../sass/responsive.scss */
   .btn-navbar { display: block; }
-  /* line 301, ../sass/responsive.scss */
+  /* line 292, ../sass/responsive.scss */
   .nav-collapse { overflow: hidden; height: 0; } }
-@media (min-width: 980px) { /* line 313, ../sass/responsive.scss */
+@media (min-width: 980px) { /* line 302, ../sass/responsive.scss */
   .nav-collapse.collapse { height: auto !important; }
-  /* line 316, ../sass/responsive.scss */
+  /* line 305, ../sass/responsive.scss */
   .row { min-width: 980px; } }
-@media (min-width: 1200px) { /* line 328, ../sass/responsive.scss */
+@media (min-width: 1200px) { /* line 317, ../sass/responsive.scss */
   .row { max-width: 1440px; }
-  /* /* Fixed grid */ @include gridSystem-generate(12, 70px, 30px); /* Fluid grid */ @include fluidGridSystem-generate(12, 5.982905983%, 2.564102564%); /* Input grid */ @include inputGridSystem-generate(12, 70px, 30px); */
-  /* line 342, ../sass/responsive.scss */
+  /* line 323, ../sass/responsive.scss */
   .thumbnails { margin-left: -30px; }
-  /* line 345, ../sass/responsive.scss */
+  /* line 326, ../sass/responsive.scss */
   .thumbnails > li { margin-left: 30px; } }
-@media (-webkit-min-device-pixel-ratio:1.5), (min-device-pixel-ratio:1.5) { /* line 355, ../sass/responsive.scss */
+@media (-webkit-min-device-pixel-ratio:1.5), (min-device-pixel-ratio:1.5) { /* line 336, ../sass/responsive.scss */
   button { border: none; padding: 0 16px; box-shadow: inset 0 0 1px black, inset 0 1px 0 #75c2f8, 0 1px 1px -1px rgba(0, 0, 0, 0.5); } }
 /* line 9, ../sass/partials/_scaffolding.scss */
 body { margin: 0; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; line-height: 18px; color: #333333; background-color: white; }
