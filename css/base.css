@@ -188,6 +188,10 @@ textarea { overflow: auto; /* 1 */ vertical-align: top; /* 2 */ }
 /* line 432, ../sass/partials/_normalize.scss */
 table { border-collapse: collapse; border-spacing: 0; }
 
+/* further developer friendly classes taken by h5bp */
+/* line 438, ../sass/partials/_normalize.scss */
+.ir { border: 0; font: 0/0 a; text-shadow: none; color: transparent; background-color: transparent; }
+
 /*
  * Bootstrap Responsive v2.0.1
  *
