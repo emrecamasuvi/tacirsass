@@ -168,15 +168,6 @@
     min-width: 768px;
   }
 
-/*
-  // Fixed grid
-  @include gridSystem-generate(12, 42px, 20px);
-  // Fluid grid
-  @include fluidGridSystem-generate(12, 5.801104972%, 2.762430939%);
-  // Input grid
-  @include inputGridSystem-generate(12, 42px, 20px);
-*/
-
 }
 
 
@@ -304,8 +295,6 @@
   }
 }
 
-
-
 // DEFAULT DESKTOP
 // ---------------
 
@@ -329,14 +318,6 @@
     max-width: 1440px;
   }
 
-/*
-  // Fixed grid
-  @include gridSystem-generate(12, 70px, 30px);
-  // Fluid grid
-  @include fluidGridSystem-generate(12, 5.982905983%, 2.564102564%);
-  // Input grid
-  @include inputGridSystem-generate(12, 70px, 30px);
-*/
 
   // Thumbnails
   .thumbnails {
@@ -357,3 +338,4 @@
   }
 
 }
+

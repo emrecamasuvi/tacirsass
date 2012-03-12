@@ -434,5 +434,20 @@ table {
     border-spacing: 0;
 }
 
+<<<<<<< HEAD
 /* further developer friendly classes taken by h5bp */
 .ir { border:0; font: 0/0 a; text-shadow: none; color: transparent; background-color: transparent; }
+=======
+/* clearfix */
+@mixin clearfix() {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+  }
+  &:after {
+    clear: both;
+  }
+}
+>>>>>>> be95a873961d5319fe1316141d2a3bcb37840561
