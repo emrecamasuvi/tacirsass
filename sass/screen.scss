@@ -1,40 +1,6 @@
 // Degiskenler baseden gelir
 @import "base";
 
-$font-color: adjust-lightness(blue, -24%);
-
-body  {@include font-sans-serif}
-#navbar {
-  @include center-block;  margin: 0 auto; @include clearfix; @include text-overflow;
-  li {
-    float:left; display: inline-block; list-style-type: none; margin-left: 24px; padding: 48px;
-    &:hover {background: mix(red, yellow, 90%); padding: round(48.4px);}
-    a {
-    	display: block; @include size(120px,120px); color: #c33; background-color: #0f0; opacity: #f00; @include border-top-radius(3px); @include font-monospace(); 
-     }
-  }
-}
-#a1, #a2, #a3, #a4, #a5, #a6 {
-  @include no-bullets;
-  color: $font-color;
-}
-
-@for $i from 1 through 6 {
-  #a#{$i} {background: mix(yellow, green, $i*10);}
-}
-
-$ax: 6;
-@while $ax > 0 {
-  #a#{$ax} {border: 4px solid mix(yellow, green, $ax*16);}
-  $ax: $ax - 1;
-}
-#bjk ul {@extend .row;}
-
-#a1 {@include col(4); @include start(2); @extend .row;}
-#a1 p {@include col(4);}
-#a1 p:nth-child(2) {@include pull(4);}
-#a2 {@include col(3); @include start(1)}
-
 .one {@include col(1);}
 .two {@include col(2);}
 .three {@include col(3);}
@@ -87,21 +53,5 @@ $ax: 6;
 .pull-eleven {@include pull(11);}
 .pull-twelve {@include pull(12);}
 
-
-
 .centered {@include centered;}
 .container {@include clearfix;}
-
-.display {
-      background: none repeat scroll 0 0 #F4F4F4;
-    border-radius: 3px 3px 3px 3px;
-    margin-bottom: 10px;
-    & div {
-    background: none repeat scroll 0 0 #E7E7E7;
-    border-radius: 3px 3px 3px 3px;
-    font-size: 11px;
-    padding-bottom: 6px;
-    padding-top: 6px;
-    text-indent: 3px;
-    }
-}
