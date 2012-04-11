@@ -138,6 +138,363 @@
 }
 
 
+// GRID SYSTEM
+// --------------------------------------------------
+/*
+// Site container
+// -------------------------
+@mixin container-fixed() {
+  width: $gridRowWidth;
+  margin-left: auto;
+  margin-right: auto;
+  @include clearfix();
+}
+
+// Le grid system
+// -------------------------
+@mixin gridSystem-columns ($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $columns) {
+  width: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1));
+} 
+@mixin gridSystem-offset($gridColumnWidth, $gridGutterWidth, $columns) {
+  margin-left: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1)) + ($gridGutterWidth * 2);
+}
+@mixin gridSystem-gridColumn($gridGutterWidth) {
+  float: left;
+  margin-left: $gridGutterWidth;
+}
+
+// Take these values and mixins, and make 'em do their thang
+@mixin gridSystem-generate($gridColumns, $gridColumnWidth, $gridGutterWidth) {
+  // Row surrounds the columns
+  .row {
+    margin-left: $gridGutterWidth * -1;
+    @include clearfix();
+  }
+  // Find all .span# classes within .row and give them the necessary properties for grid columns (supported by all browsers back to IE7, thanks $dhg)
+  [class*="span"] {
+    @include gridSystem-gridColumn($gridGutterWidth);
+  }
+  // Default columns
+  .span1     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 1); }
+  .span2     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 2); }
+  .span3     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 3); }
+  .span4     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 4); }
+  .span5     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 5); }
+  .span6     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 6); }
+  .span7     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 7); }
+  .span8     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 8); }
+  .span9     { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 9); }
+  .span10    { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 10); }
+  .span11    { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 11); }
+  .span12,
+  .container { @include gridSystem-columns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 12); }
+  // Offset column options
+  .offset1   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 1); }
+  .offset2   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 2); }
+  .offset3   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 3); }
+  .offset4   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 4); }
+  .offset5   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 5); }
+  .offset6   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 6); }
+  .offset7   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 7); }
+  .offset8   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 8); }
+  .offset9   { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 9); }
+  .offset10  { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 10); }
+  .offset11  { @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, 11); }
+}
+
+// Fluid grid system
+// -------------------------
+@mixin fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, $columns) {
+  width: ($fluidGridColumnWidth * $columns) + ($fluidGridGutterWidth * ($columns - 1));
+} 
+@mixin fluidGridSystem-gridColumn($fluidGridGutterWidth) {
+  float: left;
+  margin-left: $fluidGridGutterWidth;
+}
+// Take these values and mixins, and make 'em do their thang
+@mixin fluidGridSystem-generate($gridColumns, $fluidGridColumnWidth, $fluidGridGutterWidth) {      
+  // Row surrounds the columns
+  .row-fluid {
+    width: 100%;
+    @include clearfix();
+
+    // Find all .span# classes within .row and give them the necessary properties for grid columns (supported by all browsers back to IE7, thanks $dhg)
+    > [class*="span"] {
+      @include fluidGridSystem-gridColumn($fluidGridGutterWidth);
+    }
+    > [class*="span"]:first-child {
+      margin-left: 0;
+    }
+    // Default columns
+    > .span1     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 1); }
+    > .span2     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 2); }
+    > .span3     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 3); }
+    > .span4     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 4); }
+    > .span5     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 5); }
+    > .span6     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 6); }
+    > .span7     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 7); }
+    > .span8     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 8); }
+    > .span9     { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 9); }
+    > .span10    { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 10); }
+    > .span11    { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 11); }
+    > .span12    { @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, 12); }
+  }
+}
+@mixin esnek($ix, $ax: 0) {
+  @include fluidGridSystem-columns($fluidGridGutterWidth, $fluidGridColumnWidth, $ix);
+  @include fluidGridSystem-gridColumn($fluidGridGutterWidth);
+  @include gridSystem-offset($gridColumnWidth, $gridGutterWidth, $ax);
+  @if $ix == 1 {
+    margin-left: 0;
+  }
+}
+
+
+
+// Input grid system
+// -------------------------
+@mixin inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, $columns) {
+  width: (($gridColumnWidth) * $columns) + ($gridGutterWidth * ($columns - 1)) - 10;
+}
+@mixin inputGridSystem-generate($gridColumns, $gridColumnWidth, $gridGutterWidth) {
+  input,
+  textarea,
+  .uneditable-input {
+    &.span1     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 1); }
+    &.span2     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 2); }
+    &.span3     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 3); }
+    &.span4     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 4); }
+    &.span5     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 5); }
+    &.span6     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 6); }
+    &.span7     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 7); }
+    &.span8     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 8); }
+    &.span9     { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 9); }
+    &.span10    { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 10); }
+    &.span11    { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 11); }
+    &.span12    { @include inputGridSystem-inputColumns($gridGutterWidth, $gridColumnWidth, $gridRowWidth, 12); }
+  }
+}
+
+
+
+
+
+
+// Make a Grid
+// -------------------------
+// Use .makeRow and .makeColumn to assign semantic layouts grid system behavior
+@mixin makeRow() {
+  margin-left: $gridGutterWidth * -1;
+  @include clearfix();
+}
+@mixin makeColumn($columns: 1) {
+  float: left;
+  margin-left: $gridGutterWidth;
+  width: ($gridColumnWidth * $columns) + ($gridGutterWidth * ($columns - 1));
+}
+*/
+
+
+
+// Grid Tacirsass
+// ---------------
+// Inspired by foundation by Zurb
+@mixin col($kolonsayisi) {
+  width: ($fluidGridColumnWidth * $kolonsayisi) + ($fluidGridGutterWidth * ($kolonsayisi - 1));
+  margin-left: $fluidGridGutterWidth;
+  float: left;
+  min-height: 1px;
+  position: relative;
+  &:first-child {margin-left: 0}
+  &:last-child {float:right}
+}
+
+@mixin start($soldan) {
+  margin-left: ($fluidGridColumnWidth * $soldan) + ($fluidGridGutterWidth * ($soldan - 1)) + (1/10);
+  &:first-child {margin-left: ($fluidGridColumnWidth * $soldan) + ($fluidGridGutterWidth * ($soldan - 2)) + (1/10);}
+  &:last-child {float:right}
+}
+
+@mixin push($soldan) {
+  left: ($fluidGridColumnWidth * $soldan) + ($fluidGridGutterWidth * ($soldan));
+}
+
+@mixin pull($sagdan) {
+  right: ($fluidGridColumnWidth * $sagdan) + ($fluidGridGutterWidth * ($sagdan));
+}
+
+@mixin centered{
+  float:none; margin: 0 auto;
+  &:first-child {margin: 0 auto;}
+  &:last-child {float:none;}
+}
+
+/*
+.row
+  .one.columns
+    width: 4.3%
+  .two.columns
+    width: 13%
+  .three.columns
+    width: 21.679%
+  .four.columns
+    width: 30.37%
+  .five.columns
+    width: 39.1%
+  .six.columns
+    width: 47.8%
+  .seven.columns
+    width: 56.5%
+  .eight.columns
+    width: 65.2%
+  .nine.columns
+    width: 73.9%
+  .ten.columns
+    width: 82.6%
+  .eleven.columns
+    width: 91.3%
+  .twelve.columns
+    width: 100%
+
+  .offset-by-one
+    margin-left: 13.1%
+    &:first-child
+      margin-left: 8.7%
+  .offset-by-two
+    margin-left: 21.8%
+    &:first-child
+      margin-left: 17.4%
+  .offset-by-three
+    margin-left: 30.5%
+    &:first-child
+      margin-left: 26.1%
+  .offset-by-four
+    margin-left: 39.2%
+    &:first-child
+      margin-left: 34.8%
+  .offset-by-five
+    margin-left: 47.9%
+    &:first-child
+      margin-left: 43.5%
+  .offset-by-six
+    margin-left: 56.6%
+    &:first-child
+      margin-left: 52.2%
+  .offset-by-seven
+    margin-left: 65.3%
+    &:first-child
+      margin-left: 60.9%
+  .offset-by-eight
+    margin-left: 74.0%
+    &:first-child
+      margin-left: 69.6%
+  .offset-by-nine
+    margin-left: 82.7%
+    &:first-child
+      margin-left: 78.3%
+  .offset-by-ten
+    margin-left: 91.4%
+    &:first-child
+      margin-left: 87.0%
+  .offset-by-eleven
+    &:first-child
+      margin-left: 95.7%
+  .centered
+    float: none
+    margin: 0 auto
+    
+// Source Ordering
+.push-two
+  left: 17.4%
+.push-three
+  left: 26.1%
+.push-four
+  left: 34.8%
+.push-five
+  left: 43.5%
+.push-six
+  left: 52.2%
+.push-seven
+  left: 60.9%
+.push-eight
+  left: 69.6%
+.push-nine
+  left: 78.3%
+.push-ten
+  left: 87%
+
+.pull-two
+  right: 17.4%
+.pull-three
+  right: 26.1%
+.pull-four
+  right: 34.8%
+.pull-five
+  right: 43.5%
+.pull-six
+  right: 52.2%
+.pull-seven
+  right: 60.9%
+.pull-eight
+  right: 69.6%
+.pull-nine
+  right: 78.3%
+.pull-ten
+  right: 87%
+
+  
+// Blockgrids
+//----------------------------------------------------------------------------------------------------
+
+// Notes:
+//
+// These are 2-up, 3-up, 4-up and 5-up ULs suited for repeating blocks of content.
+// Add 'mobile' to them to switch them just like the layout grid (one item per line) on phones
+//
+// For IE7/8 compatibility, block-grid items need to be the same height.
+// To support arbitrary height, set $support-block-grid-nth-child to true
+// Just know that IE7/8 do not support :nth-child
+
+.block-grid
+  display: block
+  overflow: hidden
+  & > li
+    display: block
+    height: auto
+    float: left
+  &.two-up
+    margin-left: -4%
+    & > li
+      margin-left: 4%
+      width: 46%
+      @if $support-block-grid-nth-child
+        &:nth-child(2n+1)
+          clear: left
+  &.three-up
+    margin-left: -2%
+    & > li
+      margin-left: 2%
+      width: 31.3%
+      @if $support-block-grid-nth-child
+        &:nth-child(3n+1)
+          clear: left
+  &.four-up
+    margin-left: -2%
+    & > li
+      margin-left: 2%
+      width: 23%
+      @if $support-block-grid-nth-child
+        &:nth-child(4n+1)
+          clear: left
+  &.five-up
+    margin-left: -1.5%
+    & > li
+      margin-left: 1.5%
+      width: 18.5%
+      @if $support-block-grid-nth-child
+        &:nth-child(5n+1)
+          clear: left
+*/
 
 
 // Form field states (used in forms.scss)
