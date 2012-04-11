@@ -45,7 +45,6 @@
     max-width: 480px;
   }
 
-
   // Smooth out the collapsing/expanding nav
   .nav-collapse {
     -webkit-transform: translate3d(0, 0, 0); // activate the GPU
@@ -128,35 +127,6 @@
 
 
 
-// LANDSCAPE PHONE TO SMALL DESKTOP & PORTRAIT TABLET
-// --------------------------------------------------
-
-@media (max-width: 767px) {
-  // GRID & CONTAINERS
-  // -----------------
-  // Remove width from containers
-  .container {
-    width: auto;
-    padding: 0 20px;
-  }
-  // Fluid rows
-  .row-fluid {
-    width: 100%;
-  }
-  // Undo negative margin on rows
-  .row {
-    margin-left: 0;
-  }
-  // Make all columns even
-  .row > [class*="span"],
-  .row-fluid > [class*="span"] {
-    float: none;
-    display: block;
-    width: auto;
-    margin: 0;
-  }
-}
-
 
 
 // PORTRAIT TABLET TO DEFAULT DESKTOP
@@ -167,7 +137,6 @@
     max-width: 979px;
     min-width: 768px;
   }
-
 }
 
 
@@ -181,9 +150,6 @@
   // Remove any padding from the body
   .row {
   max-width: 979px;
-  }
-  body {
-    padding-top: 0;
   }
   // Unfix the navbar
   .navbar-fixed-top {

@@ -16,16 +16,14 @@
 @import "compass/css3";
 @import "compass/utilities";
 
-// esnek web
-@import "responsive";
+// degiskenler
+@import "partials/variables";
+@import "partials/mixins";
 
 // Grid system and page structure
 @import "partials/scaffolding";
-@import "partials/grid";
-@import "partials/layouts";
 
 // Base CSS
-@import "partials/type";
 @import "partials/code";
 @import "partials/forms";
 @import "partials/tables";
@@ -61,6 +59,9 @@
 @import "partials/accordion";
 @import "partials/carousel";
 @import "partials/hero-unit";
+
+// esnek web
+@import "partials/responsive";
 
 // Utility classes
 @import "partials/utilities"; // Has to be last to override when necessary

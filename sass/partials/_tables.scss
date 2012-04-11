@@ -36,8 +36,10 @@ table {
     vertical-align: bottom;
   }
   // Remove top border from thead by default
-  thead:first-child tr th,
-  thead:first-child tr td {
+  colgroup + thead tr:first-child th,
+  colgroup + thead tr:first-child td,
+  thead:first-child tr:first-child th,
+  thead:first-child tr:first-child td {
     border-top: 0;
   }
   // Account for multiple tbody instances
@@ -64,13 +66,12 @@ table {
 
 .table-bordered {
   border: 1px solid #ddd;
+  border-left: 0;
   border-collapse: separate; // Done so we can round those corners!
   *border-collapse: collapsed; // IE7 can't round corners anyway
   @include border-radius(4px);
-  th + th,
-  td + td,
-  th + td,
-  td + th {
+  th,
+  td {
     border-left: 1px solid #ddd;
   }
   // Prevent a double border

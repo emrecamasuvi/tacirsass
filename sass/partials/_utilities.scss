@@ -21,3 +21,36 @@
 .invisible {
   visibility: hidden;
 }
+
+// Grid Sasstanbul
+// ---------------
+// Inspired by foundation by Zurb
+@mixin col($kolonsayisi) {
+  width: ($fluidGridColumnWidth * $kolonsayisi) + ($fluidGridGutterWidth * ($kolonsayisi - 1));
+  margin-left: $fluidGridGutterWidth;
+  float: left;
+  min-height: 1px;
+  position: relative;
+  &:first-child {margin-left: 0}
+  &:last-child {float:right}
+}
+
+@mixin start($soldan) {
+  margin-left: ($fluidGridColumnWidth * $soldan) + ($fluidGridGutterWidth * ($soldan - 1)) + (1/10);
+  &:first-child {margin-left: ($fluidGridColumnWidth * $soldan) + ($fluidGridGutterWidth * ($soldan - 2)) + (1/10);}
+  &:last-child {float:right}
+}
+
+@mixin push($soldan) {
+  left: ($fluidGridColumnWidth * $soldan) + ($fluidGridGutterWidth * ($soldan));
+}
+
+@mixin pull($sagdan) {
+  right: ($fluidGridColumnWidth * $sagdan) + ($fluidGridGutterWidth * ($sagdan));
+}
+
+@mixin centered{
+  float:none; margin: 0 auto;
+  &:first-child {margin: 0 auto;}
+  &:last-child {float:none;}
+}
