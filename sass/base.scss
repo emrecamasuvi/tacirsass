@@ -15,6 +15,7 @@
 // compass kutuphanesinden gelenler
 @import "compass/css3";
 @import "compass/utilities";
+@import "compass/typography";
 
 // degiskenler
 @import "partials/variables";
@@ -65,6 +66,7 @@
 
 // Utility classes
 @import "partials/utilities"; // Has to be last to override when necessary
+@import "partials/ie"; // IE stylesheet
 $experimental-support-for-khtml:false;
 $experimental-support-for-ms:false;
 $legacy-support-for-ie6:false;

@@ -1,7 +1,7 @@
 // DEGISKENLER
 
 // Linkler
-$linkColor:             #08c !default;
+$linkColor:             #313f5e !default;
 $linkColorHover:        darken($linkColor, 15) !default;
 
 // Griler
@@ -10,9 +10,10 @@ $grayDarker:            #222 !default;
 $grayDark:              #333 !default;
 $gray:                  #555 !default;
 $grayLight:             #999 !default;
+$grayLighten:           #ccc !default;
 $grayLighter:           #eee !default;
-$whiteDarker:			#f4f4f4 !default;
-$whiteDark:				#f0f0f0 !default;
+$whiteDarker:			      #f0f0f0 !default;
+$whiteDark:				      #f8f8f8 !default;
 $white:                 #fff !default;
 
 // Ara renkler
@@ -24,6 +25,10 @@ $yellow:                #ffc40d !default;
 $orange:                #f89406 !default;
 $pink:                  #c3325f !default;
 $purple:                #7a43b6 !default;
+
+// Tema renkler
+$acikmavi:              #94acce !default;
+
 
 // Tipografi
 $baseFontSize:          13px !default;
@@ -54,20 +59,20 @@ $iconSpritePath:          "../img/glyphicons-halflings.png";
 $iconWhiteSpritePath:     "../img/glyphicons-halflings-white.png";
 
 // Input placeholder text color
-$placeholderText:       $grayLight !default;
+$placeholderText:       $grayLighter !default;
 
 // Hr border color
 $hrBorder:              $grayLighter !default;
 
 // Navbar
 $navbarHeight:                    40px !default;
-$navbarBackground:                $grayDarker !default;
-$navbarBackgroundHighlight:       $grayDark !default;
+$navbarBackground:                $grayLighter !default;
+$navbarBackgroundHighlight:       $grayLighten !default;
 $navbarLinkBackgroundHover:       transparent !default;
 
-$navbarText:                      $grayLight !default;
-$navbarLinkColor:                 $grayLight !default;
-$navbarLinkColorHover:            $white !default;
+$navbarText:                      $grayDark !default;
+$navbarLinkColor:                 $linkColor !default;
+$navbarLinkColorHover:            $black !default;
 
 // Form states and alerts
 $warningText:             #c09853 !default;
@@ -91,12 +96,10 @@ $infoBorder:              darken(adjust-hue($infoBackground, -10), 7%) !default;
 // GRID
 // ----
 
-
 // Default 940px grid
 $gridColumns:             10 !default;
 $gridColumnWidth:         68px !default;
 $gridGutterWidth:         24px !default;
-//$gridRowWidth:            ($gridColumns * $gridColumnWidth) + ($gridGutterWidth * ($gridColumns - 1));
 
 // Fluid grid
 $fluidGridColumnWidth:    4.3% !default;

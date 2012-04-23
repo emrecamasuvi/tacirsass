@@ -30,6 +30,7 @@
 
 .row {
   width: 100%;
+  max-width: 1440px;
   margin: 0 auto;
   *zoom: 1;
   &:before,
@@ -40,8 +41,8 @@
   &:after {
     clear: both;
   }
-  .row {min-width: 0}
 }
+.row .row { min-width: 0; }
 
 // For desktops
 .visible-phone     { display: none; }
@@ -316,7 +317,6 @@
   .row {
     max-width: 1440px;
   }
-
 
   // Thumbnails
   .thumbnails {

@@ -1,74 +1,6 @@
 // Degiskenler baseden gelir
 @import "base";
 
-.one {@include col(1);}
-.two {@include col(2);}
-.three {@include col(3);}
-.four {@include col(4);}
-.five {@include col(5);}
-.six {@include col(6);}
-.seven {@include col(7);}
-.eight {@include col(8);}
-.nine {@include col(9);}
-.ten {@include col(10);}
-.eleven {@include col(11);}
-.twelve {@include col(12);}
-
-.offset-by-one  {@include start(1);}
-.offset-by-two  {@include start(2);}
-.offset-by-three  {@include start(3);}
-.offset-by-four  {@include start(4);}
-.offset-by-five  {@include start(5);}
-.offset-by-six  {@include start(6);}
-.offset-by-seven  {@include start(7);}
-.offset-by-eight  {@include start(8);}
-.offset-by-nine  {@include start(9);}
-.offset-by-ten  {@include start(10);}
-.offset-by-eleven  {@include start(11);}
-.offset-by-twelve  {@include start(12);}
-
-.push-one {@include push(1);}
-.push-two {@include push(2);}
-.push-three {@include push(3);}
-.push-four {@include push(4);}
-.push-five {@include push(5);}
-.push-six {@include push(6);}
-.push-seven {@include push(7);}
-.push-eight {@include push(8);}
-.push-nine {@include push(9);}
-.push-ten {@include push(10);}
-.push-eleven {@include push(11);}
-.push-twelve {@include push(12);}
-
-.pull-one {@include pull(1);}
-.pull-two {@include pull(2);}
-.pull-three {@include pull(3);}
-.pull-four {@include pull(4);}
-.pull-five {@include pull(5);}
-.pull-six {@include pull(6);}
-.pull-seven {@include pull(7);}
-.pull-eight {@include pull(8);}
-.pull-nine {@include pull(9);}
-.pull-ten {@include pull(10);}
-.pull-eleven {@include pull(11);}
-.pull-twelve {@include pull(12);}
-
-.centered {@include centered;}
-.container {@include clearfix;}
-
-// ok lets go
-.applebg {background: url(../img/bg.png);}
-#header .navbar {margin-bottom: 1px;}
-.nav-pills .caret {margin-top: 6px;}
-.tab-content .manipulatedcform, .alert p {margin: 0 0 4px;}
-.navbar .brand {@include ir(99px, 20px, url(../img/logo.png));; margin: 0; padding: 0; background-position: center center;}
-.navbar #openbrand {@extend .hidden-desktop; margin-top: 5px;}
-.navbar #dropbrand {@extend .hidden-phone;@extend .hidden-tablet;}
-.colM, .colMS, .flex, .tab-pane {@extend .row;}
-.messagelist .alert-info, .object-tools, #changelist-search, .btn-toolbar .pagination, .btn-toolbar .pagination ul, .help-inline .errorlist, .tdnav {margin: 0;}
-.tdnav .dropdown-menu {padding: 7px 5px 5px 7px;}
-.tdnav .dropdown-menu li.active label, .tdnav .dropdown-menu li label:hover  {color: $white; background-color: $linkColor;}
-
 .display {
       background: none repeat scroll 0 0 #F4F4F4;
     border-radius: 3px 3px 3px 3px;
@@ -82,3 +14,26 @@
     text-indent: 3px;
     }
 }
+
+body {background-color: $whiteDark;}
+header, nav, aside, article, section, footer {@extend .row;}
+#logo {@extend .six; margin: 0; height: 128px;}
+#logo a {@include ir(128px, 128px, "../img/tacr_reasonably_small.jpg"); display:block;}
+.headerright {@extend .six; text-align: right;}
+#topsecondarymenu {@include inline-block-list(12px); text-align: right; margin-right: -12px;}
+nav .navbar-inner {background: $white;}
+footer {
+  margin-bottom: $baseLineHeight;
+  background: $white;
+  $shadow: 0 1px 2px rgba(0,0,0,.1);
+  @include box-shadow($shadow);
+}
+.footerlinkler, .tacirmahlas {@extend .row;}
+.footeryardim, .footerkurumsal, .footersosyalmedya {@extend .two}
+.footersozlesmeler, .footerebulten {@extend .three}
+.tacirmahlas {@include inline-block-list(12px); text-align: center;}
+.tacirnet a, .darktacirnet a, .rapidssl, .darkrapidssl, .html5icon, .darkhtml5icon {
+  @include ir(88px, 26px, "../img/tacirnetimza.png");
+}
+.tacirnet a, .darktacirnet a {width: 131px; background-position: -194px 0; display: block;}
+.html5icon, .darkhtml5icon {width: 52px; background-position: -112px 0;}
