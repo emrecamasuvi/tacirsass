@@ -28,9 +28,12 @@
   visibility: hidden;
 }
 
+.container {
+  padding: 0 20px;
+}
+
 .row {
   width: 100%;
-  max-width: 1440px;
   margin: 0 auto;
   *zoom: 1;
   &:before,
@@ -42,7 +45,7 @@
     clear: both;
   }
 }
-.row .row { min-width: 0; }
+.row .row {min-width: 0}
 
 // For desktops
 .visible-phone     { display: none; }
@@ -82,7 +85,6 @@
   .row {
     max-width: 480px;
   }
-
 
   // Smooth out the collapsing/expanding nav
   .nav-collapse {
@@ -132,7 +134,7 @@
     margin: 0;
     &.fade.in { top: auto; }
   }
-  .modal-header .close {
+  .modal-header .close, .hero-unit {
     padding: 10px;
     margin: -10px;
   }
@@ -141,6 +143,8 @@
   .carousel-caption {
     position: static;
   }
+
+
 
 }
 
@@ -152,10 +156,6 @@
 @media (max-width: 767px) {
 
   // Padding to set content in a bit
-  body {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
   .navbar-fixed-top {
     margin-left: -20px;
     margin-right: -20px;
@@ -167,6 +167,7 @@
   .container {
     width: auto;
   }
+
 }
 
 
@@ -292,6 +293,10 @@
     overflow: hidden;
     height: 0;
   }
+  .manipulerow {
+    @extend .twelve;
+  }
+
 }
 
 // DEFAULT DESKTOP
@@ -305,25 +310,4 @@
   .row {
   min-width: 980px;
   }
-}
-
-
-
-// LARGE DESKTOP & UP
-// ------------------
-
-@media (min-width: 1200px) {
-
-  .row {
-    max-width: 1440px;
-  }
-
-  // Thumbnails
-  .thumbnails {
-    margin-left: -30px;
-  }
-  .thumbnails > li {
-    margin-left: 30px;
-  }
-
 }

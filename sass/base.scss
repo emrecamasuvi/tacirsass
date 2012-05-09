@@ -15,7 +15,6 @@
 // compass kutuphanesinden gelenler
 @import "compass/css3";
 @import "compass/utilities";
-@import "compass/typography";
 
 // degiskenler
 @import "partials/variables";
@@ -55,6 +54,7 @@
 
 // Components: Misc
 @import "partials/thumbnails";
+@import "partials/badges";
 @import "partials/labels";
 @import "partials/progress-bars";
 @import "partials/accordion";

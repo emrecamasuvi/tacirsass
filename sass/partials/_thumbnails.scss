@@ -2,21 +2,21 @@
 // ----------
 
 .thumbnails {
-  margin-left: -$gridGutterWidth;
   list-style: none;
   @include clearfix();
 }
 .thumbnails > li {
   float: left;
-  margin: 0 0 $baseLineHeight $gridGutterWidth;
+  margin: 0 0 $baseLineHeight $fluidGridGutterWidth;
 }
+
 .thumbnail {
   display: block;
   padding: 4px;
   line-height: 1;
   border: 1px solid #ddd;
   @include border-radius(4px);
-  @include box-shadow(0 1px 1px rgba(0,0,0,.075));
+  @include box-shadow(0 1px 1px rgba(0,0,0,0.1));
 }
 // Add a hover state for linked versions only
 a.thumbnail:hover {
