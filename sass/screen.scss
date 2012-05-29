@@ -1,47 +1,107 @@
 // Degiskenler baseden gelir
 @import "base";
 
-// ok lets go
-.applebg {background: url(../img/bg.png);}
-#header .navbar {margin-bottom: 1px;}
-#home .nav-tabs > li, .twitterfollowersspan {margin-bottom: -2px;}
-.nav-pills .caret, .twitterfollowers, .category_line+.category_line {margin-top: 6px;}
-.alert p {margin: 0 0 4px;}
-.navbar .brand {@include ir(130px, 20px, url(../img/logo.png)); margin: 0; padding: 0; background-position: center center;}
-.navbar #openbrand {@extend .hidden-desktop; margin-top: 5px;}
-.navbar #dropbrand {@extend .hidden-phone;@extend .hidden-tablet;}
-.colM, .colMS, .flex, .tab-pane {@extend .row;}
-.messagelist .alert-info, .object-tools, #changelist-search, .btn-toolbar .pagination, .btn-toolbar .pagination ul, .help-inline .errorlist, .tdnav {margin: 0;}
-.tdnav .dropdown-menu {padding: 7px 5px 5px 7px;}
-.tdnav .dropdown-menu li.active label, .tdnav .dropdown-menu li label:hover  {color: $white; background-color: $linkColor;}
-#anasayfaistatistikgoster, #anasayfaciroistatistik, .notsoimportant  {color: $whiteDarker}
-.pageblack  {color: $grayDark; cursor: default;}
-.tacirtakip, #changelist .changelistgenelayar, .nav-tabs .manipulatedcform {margin:0;}
-.tacirnetitakipedin {display:block; float:right;}
-.desteksekmesi {background: url(../img/biglogo.png) no-repeat scroll center top;}
-.desteksekmesi .well {background-color: rgba(245,245,245,0.5);}
-.row .indexkucukmargin {margin-left: 1%;}
-.indexkucukmargin.three {width: 23.6%;}
-.indexkucukmargin.four {width: 32.4%;}
-.indexkucukmargin.six {width: 49.8%;}
-@media (max-width: 767px){
-	.paketbilgilerimaster .paketbilgileri, #tablogerceksiparisler, .six.indexkucukmargin, #siparisozetsayfasiresponsive .table-striped.six {
-		@include yay();
-	}
+$linkColor: red;
+
+.display {
+      background: none repeat scroll 0 0 #F4F4F4;
+    border-radius: 3px 3px 3px 3px;
+    margin-bottom: 10px;
+    & div {
+    background: none repeat scroll 0 0 #E7E7E7;
+    border-radius: 3px 3px 3px 3px;
+    font-size: 11px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    text-indent: 3px;
+    }
 }
-@media (min-width: 768px) and (max-width: 979px) {
-	#tablogerceksiparisler, .six.indexkucukmargin, #siparisozetsayfasiresponsive .table-striped.six {
-		@include yay();
-	}
-	.three.indexkucukmargin {
-		@include col(5);
-	}
+
+body {background-color: $whiteDark;}
+
+// modernizr geldigi zaman silinecek
+header {
+  $container-style: fluid;
+  @include container;
+  @include clearfix;
 }
-#header .navbar-inner {padding: 0;}
-.marginleftsifir, .thumbnails > li.marginleftsifir {margin-left: 0;}
-.row+.module, .margtop {margin: 1em 0;}
-.tacirshop-siparis .add-another {@extend .hide;}
-.charfield .alert-info, .charfield .alert-warning {font-size: 14px;}
-.breadcrumb .manipulatedcform {margin-top: 43px;}
-#changelist-form .margtop .dropdown-toggle, .margtop .open .dropdown-toggle {background-color: #eee; color: #08c}
-table#online-users td{@include ellipsis();}
+#logo {margin: 0; height: 128px; float:left;}
+#logo a {@include ir(128px, 128px, url(#{$iconMahlas}/tacr_reasonably_small.jpg)); display:block}
+.headerright {text-align: right;}
+#topsecondarymenu {@include inline-block-list(12px); text-align: right}
+footer {
+  margin-bottom: $baseLineHeight;
+  background: $white; 
+  $shadow: 0 1px 2px rgba(0,0,0,.1);
+  @include box-shadow($shadow);
+}
+.tacirmahlas {@include inline-block-list(12px); text-align: center;}
+.tacirnet a, .darktacirnet a, .rapidssl, .darkrapidssl, .html5icon, .darkhtml5icon {
+  @include ir(88px, 26px, url(#{$iconMahlas}/tacirnetimza.png));
+}
+.tacirnet a, .darktacirnet a {width: 131px; background-position: -194px 0; display: block;}
+.html5icon, .darkhtml5icon {width: 52px; background-position: -112px 0;}
+.ag-test .ag1,.ag-test .ag3{background:#71dad2}.ag-test .ag2{background:#fae7b3}.ag-test .ag7{background:#f6d784}.ag-test .ag4,.ag-test .ag5,.ag-test .ag8,.ag-test .ag9{background:#ee9e9c}.ag-test .ag6{background:#f09671}.ag-test .ag10{background:#ea9fc3}
+
+.ag-test {
+  background: #fff;
+  $container-style: fluid;
+  @include container;
+  @include clearfix;
+}
+.ag1 { @include span-columns(2,10); }
+.ag2 { @include span-columns(6,10); }
+.ag3 { @include span-columns(2 omega, 10); }
+.ag4 { @include span-columns(3,6); }
+.ag5 { @include span-columns(3 omega,6); }
+.ag6 { @include span-columns(2,6); }
+.ag7 { @include span-columns(4 omega,6); }
+.ag8 { @include span-columns(2,4); }
+.ag9 { @include span-columns(2 omega,4); }
+.ag10 { clear: both; }
+
+.ilksira div, .kayikci div {background: #71DAD2;}
+.ilksira, .kayikci, .kayikcininkuregi {
+  margin: 1em 0;
+  height: 48px;
+  $total-columns: 16; 
+  $container-style: fluid;
+  $grid-padding: 2em;
+  background: #F6D784;
+  @include container;
+
+}
+.sidebar { @include span-columns(5,16); }
+.content { @include span-columns(9,16); }
+.ad { @include span-columns(2 omega,16); }
+
+.kayikci {
+  background: #EE9E9C;
+  $total-columns: 12; 
+  @include container;
+}
+.uckay { @include span-columns(3,12); }
+.altikay { @include span-columns(6,12); }
+.uckayson { @include span-columns(3 omega,12); }
+
+.kayikcininkuregi {
+  background: #EA9FC3;
+  $total-columns: 12; 
+  @include container;
+}
+.birsolda {
+  background: #FAE7B3;
+  @include span-columns(1,12);
+  @include post(3);
+}
+.sekizveucotele {
+  background: #FAE7B3;
+  @include span-columns(8 omega,12);
+}
+.abc, .cba {
+  background-color: #71DAD2;
+  @include span-columns(5,8);
+}
+.cba {
+  @include span-columns(3 omega,8);
+}

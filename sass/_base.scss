@@ -13,14 +13,13 @@
 @import "partials/normalize";
 
 // compass kutuphanesinden gelenler
-@import "compass/css3";
-@import "compass/utilities";
+@import "compass";
 
 // degiskenler
-@import "partials/variables";
+@import "variables";
 @import "partials/mixins";
 
-// Grid system and page structure
+// Page structure
 @import "partials/scaffolding";
 
 // Base CSS
@@ -29,11 +28,11 @@
 @import "partials/tables";
 
 // Components: common
-@import "partials/sprites";
 @import "partials/dropdowns";
 @import "partials/wells";
 @import "partials/component-animations";
 @import "partials/close";
+@import "partials/css-arrows";
 
 // Components: Buttons & Alerts
 @import "partials/buttons";
@@ -65,8 +64,10 @@
 @import "partials/responsive";
 
 // Utility classes
+@import "susy"; // susy grid
 @import "partials/utilities"; // Has to be last to override when necessary
 @import "partials/ie"; // IE stylesheet
 $experimental-support-for-khtml:false;
 $experimental-support-for-ms:false;
-$legacy-support-for-ie6:false;
+$legacy-support-for-ie  : false;
+$legacy-support-for-ie6 : $legacy-support-for-ie;

@@ -22,9 +22,26 @@
   visibility: hidden;
 }
 
+/*
+.row {
+  width: 100%;
+  margin: 0 auto;
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+  }
+  &:after {
+    clear: both;
+  }
+}
+.row .row {min-width: 0}
+
 // Grid Tacirsass
 // ---------------
 // Inspired by foundation by Zurb
+
 @mixin col($kolonsayisi) {
   width: ($fluidGridColumnWidth * $kolonsayisi) + ($fluidGridGutterWidth * ($kolonsayisi - 1));
   margin-left: $fluidGridGutterWidth;
@@ -110,3 +127,4 @@
 
 .centered {@include centered;}
 .container {@include clearfix;}
+*/
