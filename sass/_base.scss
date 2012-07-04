@@ -1,22 +1,17 @@
-/*!
- * Bootstrap v2.0.1
- *
- * Copyright 2012 Twitter, Inc
- * Licensed under the Apache License v2.0
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Designed and built with all the love in the world @twitter by @mdo and @fat.
- * Further development by Emre Camasuvi
- */
+/*
+tacirsass v.1
+partikuller skeletondan geliyor
+ayrica sass'in compass ve susy gemleri yuklu olmali
+*/
 
 // yeni reset normalize
 @import "partials/normalize";
 
 // compass kutuphanesinden gelenler
 @import "compass";
+@import "variables";
 
 // degiskenler
-@import "variables";
 @import "partials/mixins";
 
 // Page structure
@@ -53,6 +48,7 @@
 
 // Components: Misc
 @import "partials/thumbnails";
+@import "partials/type";
 @import "partials/badges";
 @import "partials/labels";
 @import "partials/progress-bars";
@@ -61,12 +57,15 @@
 @import "partials/hero-unit";
 
 // esnek web
-@import "partials/responsive";
+@media (min-width: 240px) {
+	@import "partials/responsive";
+}
 
 // Utility classes
 @import "susy"; // susy grid
 @import "partials/utilities"; // Has to be last to override when necessary
 @import "partials/ie"; // IE stylesheet
+@import "partials/addons"; // Default Theme Style Fixes
 $experimental-support-for-khtml:false;
 $experimental-support-for-ms:false;
 $legacy-support-for-ie  : false;

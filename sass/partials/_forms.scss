@@ -23,10 +23,8 @@ legend {
   display: block;
   width: 100%;
   padding: 0;
-  margin-bottom: $baseLineHeight * 1.5;
-  font-size: $baseFontSize * 1.5;
   line-height: $baseLineHeight * 2;
-  color: $grayDark;
+  color: $linkColor;
   border: 0;
   border-bottom: 1px solid #eee;
 
@@ -34,6 +32,9 @@ legend {
   small {
     font-size: $baseLineHeight * .75;
     color: $grayLight;
+  }
+  &+ul {
+    margin-bottom: round($baseLineHeight * .25);
   }
 }
 
@@ -239,6 +240,7 @@ select:focus {
 // -----------
 
 // General classes for quick sizes
+.input-xmini      { width: 30px; }
 .input-mini       { width: 60px; }
 .input-small      { width: 90px; }
 .input-medium     { width: 150px; }
@@ -545,6 +547,9 @@ legend + .control-group {
   .control-group {
     margin-bottom: $baseLineHeight;
     @include clearfix();
+    .label-div & {
+      margin-bottom: $baseLineHeight/4;
+    }
   }
   // Float the labels left
   .control-label {
@@ -552,6 +557,9 @@ legend + .control-group {
     width: 140px;
     padding-top: 5px;
     text-align: right;
+    .label-div & {
+      padding-top: 0;
+    }
   }
   // Move over all input controls and content
   .controls {
@@ -573,5 +581,17 @@ legend + .control-group {
   // Move over buttons in .form-actions to align with .controls
   .form-actions {
     padding-left: 160px;
+  }
+}
+
+// label-div yapida ilerlenirse
+.label-div {
+  .control-group {
+    margin-bottom: round($baseLineHeight/4);
+    border-bottom: 1px dotted $grayLighter;
+  }
+  .control-label {
+    padding-top: 0;
+    text-align: left;
   }
 }

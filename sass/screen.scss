@@ -1,107 +1,635 @@
 // Degiskenler baseden gelir
 @import "base";
 
-$linkColor: red;
-
-.display {
-      background: none repeat scroll 0 0 #F4F4F4;
-    border-radius: 3px 3px 3px 3px;
-    margin-bottom: 10px;
-    & div {
-    background: none repeat scroll 0 0 #E7E7E7;
-    border-radius: 3px 3px 3px 3px;
-    font-size: 11px;
-    padding-bottom: 6px;
-    padding-top: 6px;
-    text-indent: 3px;
-    }
+.corset {
+	#Header &,
+	#Nav &,
+	#Banner &,
+	#Content &,
+	#Footer & {
+		$total-columns: 12;
+		$column-width: 4.65em;
+		$gutter-width: 1.65em;
+		background: $white;
+		@include container;
+		@include clearfix;
+	}
+	#Content & {
+		$total-columns: 24;
+		padding-top: $gutter-width;
+		padding-bottom: $gutter-width;
+	}
+	#Nav & {
+		overflow: visible;
+	}
 }
 
-body {background-color: $whiteDark;}
+#HeaderTopCol1 { @include span-columns(5,12); }
+#HeaderTopCol2 { @include span-columns(7 omega, 12); }
+#HeaderTopCol3 { @include span-columns(3 omega,12); }
 
-// modernizr geldigi zaman silinecek
-header {
-  $container-style: fluid;
-  @include container;
-  @include clearfix;
-}
-#logo {margin: 0; height: 128px; float:left;}
-#logo a {@include ir(128px, 128px, url(#{$iconMahlas}/tacr_reasonably_small.jpg)); display:block}
-.headerright {text-align: right;}
-#topsecondarymenu {@include inline-block-list(12px); text-align: right}
-footer {
-  margin-bottom: $baseLineHeight;
-  background: $white; 
-  $shadow: 0 1px 2px rgba(0,0,0,.1);
-  @include box-shadow($shadow);
-}
-.tacirmahlas {@include inline-block-list(12px); text-align: center;}
-.tacirnet a, .darktacirnet a, .rapidssl, .darkrapidssl, .html5icon, .darkhtml5icon {
-  @include ir(88px, 26px, url(#{$iconMahlas}/tacirnetimza.png));
-}
-.tacirnet a, .darktacirnet a {width: 131px; background-position: -194px 0; display: block;}
-.html5icon, .darkhtml5icon {width: 52px; background-position: -112px 0;}
-.ag-test .ag1,.ag-test .ag3{background:#71dad2}.ag-test .ag2{background:#fae7b3}.ag-test .ag7{background:#f6d784}.ag-test .ag4,.ag-test .ag5,.ag-test .ag8,.ag-test .ag9{background:#ee9e9c}.ag-test .ag6{background:#f09671}.ag-test .ag10{background:#ea9fc3}
+#NavTopCol1 { @include span-columns(9,12); }
+#NavTopCol2 { @include span-columns(3 omega,12); }
 
-.ag-test {
-  background: #fff;
-  $container-style: fluid;
-  @include container;
-  @include clearfix;
+#UnderConstructionPage {
+	#Header, #Nav, #Footer {display:none;}
 }
-.ag1 { @include span-columns(2,10); }
-.ag2 { @include span-columns(6,10); }
-.ag3 { @include span-columns(2 omega, 10); }
-.ag4 { @include span-columns(3,6); }
-.ag5 { @include span-columns(3 omega,6); }
-.ag6 { @include span-columns(2,6); }
-.ag7 { @include span-columns(4 omega,6); }
-.ag8 { @include span-columns(2,4); }
-.ag9 { @include span-columns(2 omega,4); }
-.ag10 { clear: both; }
 
-.ilksira div, .kayikci div {background: #71DAD2;}
-.ilksira, .kayikci, .kayikcininkuregi {
-  margin: 1em 0;
-  height: 48px;
-  $total-columns: 16; 
-  $container-style: fluid;
-  $grid-padding: 2em;
-  background: #F6D784;
-  @include container;
+#ContentMiddleCol1 {
+	@include span-columns(18 omega,24);
+	#UnderConstructionPage &,
+	#CheckoutPayment &,
+	#AccountLogin &,
+	#AccountRegister &,
+	#InviteFriend &,
+	#Error404 &,
+	#SpecialPage &,
+	#PaymentFail &,
+	#PaymentSuccess &,
+	#Cart &,
+	#Product &,
+	#onepagecheckout &,
+	#Product404 &,
+	#Contact &,
+	#AccountPasswordResetForm & {
+		@include span-columns(24 omega,24);
+	}
+}
+#ContentMiddleCol2 {
+	@include span-columns(5,24);
+	@include post(1);
+}
 
+#Header h1 {
+	@include hide-text;
 }
-.sidebar { @include span-columns(5,16); }
-.content { @include span-columns(9,16); }
-.ad { @include span-columns(2 omega,16); }
 
-.kayikci {
-  background: #EE9E9C;
-  $total-columns: 12; 
-  @include container;
+.crumbhome a, .crumbcategory a {
+	@include css-arrow(right, 13px, $whiteDark, 1px, dotted);
 }
-.uckay { @include span-columns(3,12); }
-.altikay { @include span-columns(6,12); }
-.uckayson { @include span-columns(3 omega,12); }
 
-.kayikcininkuregi {
-  background: #EA9FC3;
-  $total-columns: 12; 
-  @include container;
+.productDetails {
+	$grid-padding: 0;
+	@include container;
+	.productImages {
+		@include span-columns(6, 12);
+	}
+	.productDesc {
+		@include span-columns(4 omega, 12);
+		@include squish(1,1);
+	}
 }
-.birsolda {
-  background: #FAE7B3;
-  @include span-columns(1,12);
-  @include post(3);
+#AddToWishList {
+	@include pre(5); @include span-columns(8 omega, 13);
 }
-.sekizveucotele {
-  background: #FAE7B3;
-  @include span-columns(8 omega,12);
+
+#TotalsC {
+	@include span-columns(4 omega, 12);
+	margin-bottom: 2em;
 }
-.abc, .cba {
-  background-color: #71DAD2;
-  @include span-columns(5,8);
+
+.cartexplanation {
+ @include span-columns(7, 12); 
+ @include pre(1);
 }
-.cba {
-  @include span-columns(3 omega,8);
+
+#AccountViewAddresses .content {
+ ul {
+	 @include span-columns(8, 12);
+	}
+	li {
+		line-height: 2.5;
+	}
+}
+
+#AccountRegister, #AccountLogin {
+ .passivesidebar {
+	 @include span-columns(6 omega, 12);
+	}
+	.activecontent {
+		@include span-columns(6, 12);
+	}
+	.form-actions, .loginsocialbox {
+		clear:both;
+	}
+}
+
+#AccountLogin {
+	.passivesidebar h3 { margin: 0; }
+	.loginsocialbox ul {
+		@include inline-block-list(5px);
+	}
+}
+.satinalinanurunler {
+	list-style:square;
+	line-height: 2;
+	li {
+	margin-left: 12px;
+	}
+}
+
+#chekart .controls {
+	width: columns(9, 18);
+	.kart, .secilen-kart-bilgileri {
+		@include span-columns(4, 9);
+		p {
+			margin: .4em 0;
+		}
+	}
+}
+
+#checopy, #Error404, #PaymentFail, #PaymentSuccess {
+	.well {
+		margin: 1.2em;
+		font-size: 200%;    
+	}
+}
+
+.kargo-hakkinda, #taksitleodenebilir, .categoryList, .productImageMain {
+	margin-bottom: 1em;
+}
+
+.checkoutlastleft {
+	margin-top: 2em;
+	$gutter-width: 2em;
+	@include span-columns(8, 12);
+	.cbnotes, .cdaddr {
+		@include span-columns(4, 8);
+		margin-bottom: 2em;
+	}
+	.cnotes, .cbaddr {
+		@include span-columns(4 omega, 8);
+		margin-bottom: 2em;
+	}
+}
+.checkoutlastright {
+	@include span-columns(4 omega, 12);
+	margin-top: 2em;
+	.controls {
+		margin-left: 0;
+	}
+}
+
+// contactpage
+.contactmessageform {
+	@include span-columns(13, 24);
+	margin: 1em 0;
+}
+#SenderData {
+ @include span-columns(11 omega, 24);
+}
+
+
+// searchpage
+#searchform, .cmsmenu {
+	margin: $baseLineHeight/3 0;
+}
+
+// arama sayfasi
+#SearchBox {
+	.controls {
+	 width: 100%;
+	 float: left;
+	}
+	#id_q {
+		@extend .input-medium;
+	}
+}
+
+// imza
+.tacirmahlas {
+ @include span-columns(5 omega, 12);
+ @include inline-block-list(0);
+ clear: both;
+}
+
+// ust usermenu
+#UserMenu {
+	@include inline-block-list(5px);
+	@extend .pagination-right;
+	margin: 1em 0;
+}
+
+// tabs
+.tabs {
+	margin: 0 0 $gutter-width/2;
+	@include inline-block-list(14px);
+	overflow: visible;
+	width:100%;
+	.current {
+		@include css-arrow(bottom, $baseLineHeight/2, $grayLight, 1px, solid);
+		a {color: $white;}
+	}
+}
+
+//tab productlist container
+.tabProductList, #SearchResults, .tabC {
+	$grid-padding: 0;
+	$total-columns: 12;
+	@include container;
+	@include clearfix;
+	.tabProduct {
+		@include span-columns(4, 12);
+		min-height: ($tabproductimage_width_y * 3) / 2;
+		#productList &  {
+			@include span-columns(3, 12);
+		}
+	}
+	.lasttab {
+	 @include post(0);
+	}
+}
+.tabContent, .tabProductImage, .tabListProductimg { position: relative; }
+.tabC { padding: $baseFontSize 0; }
+
+// productlist urun gorunumu
+.tabProductImage a  {
+	// buraya dikkat width ve heighte degisken atadik
+	display: table-cell;
+	width: $tabproductimage_width_x;
+	height: $tabproductimage_width_y;
+	vertical-align: middle;
+	text-align: center;
+	line-height: 0;
+	img {
+		@include respimage;
+	}
+}
+
+.tabProductLabels {
+	width:$tabproductimage_width_x;
+	height:$tabproductimage_width_y;
+	.tabListProductimg & {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+#SiteTel {
+	text-align: right;
+}
+
+#id_dob_day, #id_dob_month, #id_dob_year, #id_kk_ccv, #id_kk_skt_ay, #id_kk_skt_yil, #email {@extend .input-small;}
+#OrderIndex .table .btn {@extend .input-large;}
+
+//  tacirnet ve custom ise bu kadarcik
+html, body { height: 100% }
+body { width:100%; -webkit-font-smoothing: antialiased }
+#MightyContainer  {
+	min-height: 100%; height: auto!important; height: 100%; margin: 0 auto;
+	margin-bottom: -$stickyfooterheight;
+}
+#Footer, .stickyfooter  {clear:both; height: $stickyfooterheight }
+.noCursor   { cursor: default !important; }
+.hideglobal   { display:none; font-size:0; overflow:hidden }
+
+/*  Nav   */
+.cmsmenu {
+	position:relative;
+	@include clearfix;
+	#Nav & {
+		overflow: visible;
+	}
+	li {
+		height: 30px;
+		#Nav & {
+			float:left;
+			display:inline;
+			margin-right: .8333em;
+			position:relative;
+		}
+	}
+}
+.cmsmenu 
+.cmsmenu ul li                { display:block; float:none; width:196px; height: 30px }
+.cmsmenu li a               { display:block; width:100%; height: 100%; line-height:30px }
+.cmsmenu ul  { position:absolute; left:0; top:30px; width:196px; z-index: 1001; }
+.cmsmenu ul ul                { left:108%; top:0 }
+.cmsmenu ul ul ul             { left:216%; top:0 }
+.cmsmenu ul ul ul ul          { left:324%; top:0 }
+.cmsmenu ul li a              { width:196px; height: auto; float:left; }
+
+.flexslider {position:relative;}
+.flexslider .slides li:first-child  {display:block}
+
+// genel gizli hide edilmis alanlar
+.flexslider .slides li, .pullmenu .mainCatLink, .filtre-yukleniyor, #yukleniyor, .pagination .pagination-passive, .sepetim, .zooming, #Category .pageTitle, .cmsmenu ul, #Product.apple .productImageMain #closeZoomW {display:none;}
+
+/*  Modules   */
+.module   { margin: 0 0 1.667em; }
+.moduleTitle h2, .moduleTitle h3, .moduleTitle h4  { text-align:center; margin-top: 0; }
+
+/* Category Accordion and NewsModule */
+.accordion, .tacirnews { padding: 10px 0; }
+.accordion li { padding: 0 5px; line-height: 28px}
+.accordion a { display: block; outline: 0; }
+.accordion ul li { padding: 0 }
+.accordion ul a { padding: 0 0 0 6px; border-left: 1px dotted $grayLighter }
+.accordion ul a:hover, .accordion ul a.active { border-color: $grayccc }
+.accordion .dcjq-icon {float:right; display:block; padding: 0 8px 0 12px; width:8px; margin: -28px 0 0 0; text-align:center; font-weight:bold; opacity:0.5}
+.ie7 .accordion .dcjq-icon, .ie8 .accordion .dcjq-icon  {font-size:11px}
+.tacirnews li { padding: 0 5px 5px; line-height: 24px; margin: 5px auto; border-bottom: 1px dotted $grayLighter}
+
+/*  Category Pullmenu */
+.pullmenu { position: relative; z-index: 9996; padding: 10px 0; }
+.pullmenu ul, .pullmenu li:hover ul ul, .pullmenu li:hover li:hover ul ul, .pullmenu li:hover li:hover li:hover ul ul, .pullmenu li:hover li:hover li:hover li:hover ul ul { position: absolute; left: -999em; top: -999em; }
+.pullmenu  ul { width: 198px}
+.pullmenu li { position: relative; z-index: 991; line-height: 2; }
+.pullmenu li a  { display: block; padding: 0 10px; }
+.pullmenu li:hover ul { left: 189px; top: 0; width: 179px; padding-left: 10px; height: auto; z-index: 300; }
+.pullmenu li:hover ul li a { white-space: nowrap; background-color: $white; }
+.pullmenu li:hover li:hover ul, .pullmenu li:hover li:hover li:hover ul, .pullmenu li:hover li:hover li:hover li:hover ul, .pullmenu li:hover li:hover li:hover li:hover li:hover ul { left: 177px; top: 0px; white-space: nowrap; width: 178px; z-index: 400}
+.manipulatedslct {float:left; display:inline; margin-right: 12px; width: auto}
+
+/* Filtreleme */
+.filtreleme {width: 100%}
+.filtreleme input, .filtreleme select {margin-left: 6px}
+.filtreleme fieldset li:first-child {padding-top: 8px;}
+.filtreleme .chzn-container     {margin-top: 1.2em}
+.filtreleme .btn     {margin-top: 1.2em; width:92%}
+.filtre-yukleniyor      {position:absolute; margin:12px 0 0 3px; z-index:101}
+#yukleniyor         {position:absolute; left: 4px; top:8px}
+#html5shim-1  {
+	cursor:pointer;
+	width: columns(10,12);
+}
+.ie7 .chzn-select {margin: 1.2em 0 0 4px}
+
+/* Sepetim */
+.sepetim {
+	width:308px; @include background-opacity($white, 0.96); position:absolute; z-index:10011; left:0; right:0; top:0; margin: auto; @include box-shadow(0 0 6px rgba(0, 0, 0, 0.6));
+}
+.ie7 .sepetim {left:40%}
+.sepetim p  {margin:0}
+.sepetim, .sepetim .enalt, .sepetim .enust  {@include border-bottom-left-radius(4px); @include border-bottom-right-radius(4px);}
+.sepetim .enalt { background-color: $whiteDarker; border: 0; @include box-shadow(inset 0 2px 2px rgba(0, 0, 0, 0.05)); color:$blue; text-align:center; margin:0; width:100%; overflow:hidden}
+.sepetim .enalt a, .sepetim-bos {display:block; width:100%; height:100%; line-height: 32px}
+.sepetim .enalt a {width:50%; float:left}
+.sepetim .enust { background-color: $whiteDarker; border: medium none; width:100%; text-align:center}
+.sepetim .sepetim-urun { width:298px; overflow:hidden; border-bottom:1px solid $grayLighter; border-top: 1px solid $white; cursor:pointer; padding:5px; position:relative }
+.sepetim .sepetim-urun:hover { background-color:$whiteDarker }
+.sepetim .sepetim-urun-sil {position:absolute; right:4px; top:4px;}
+.sepetim .sepetim-urun-sil a {display:block; width:100%; height:100% }
+.sepetim .deletegui {width:24px}
+.sepetim .deletegui a {background: $red; color: $white; @include border-radius(6px); text-align: center;}
+.sepetim .resim {float:left; margin: 0 10px 0 4px; border:1px solid $grayLighter}
+.sepetim .ozellikler {float:left}
+.sepetim .adet {display:inline-block; margin-right: 8px}
+.sepetim .ozellikler li {font-size: 12px; line-height: 18px}
+.sepetim .urunadi {width: 212px }
+.sepetim .sepetim-over, .flexslider, .noslides { overflow:hidden}
+.sepetim-bos { text-align:center}
+.sepete-eklendi, .sepete-ekleniyor { position:absolute; margin:-57px 0 0 78px; }
+
+.tabs a               { height: 36px; white-space: nowrap}
+.tabs span            { line-height: 36px }
+.moduleTitle  { height: 28px }
+.moduleTitle h3   { line-height: 28px; font-size: 1.1667em }
+
+// product list etiketler ve diger elementler
+.tabProductLabels {position:absolute; display:block; margin: 0; left: 0; top: 0; overflow:hidden; z-index:2}
+.tabProductLabels span {display:block; width:0; height: 33px; position: absolute; top: 0; right:0; @include hide-text;}
+.tabProductLabels span.catmini-indirimdekiler, .tabProductLabels span.catmini-indirimli, .tabProductLabels span.catmini-yeni, .tabProductLabels span.catmini-yeni-eklenenler, .tabProductLabels span.catmini-kargosu-bedava, .tabProductLabels span.catmini-kampanyal  {width: 53px; background: image_url("bgs/etiketsprite.png") no-repeat scroll right top transparent}
+.tabProductLabels span.catmini-yeni, .tabProductLabels span.catmini-yeni-eklenenler   {background-position: left top; top: 36px;}
+.tabProductLabels span.catmini-kargosu-bedava   {background-position: right bottom; width:27px; height: 20px; top: auto; bottom: 0 }
+.tabProductLabels span.catmini-kampanyal  {background-position: center center; left: 0; right: auto; top: auto; bottom: 0;}
+.tabProductName h3 {margin: 0 0 4px; font-family: $sansFontFamily;}
+.tabProductayrac {margin: 0 4px}
+.tabProductName a {color: lighten($linkColor, 24%); display: block;}
+.tabProductBrand-Price a, .tabProductayrac {color: lighten($linkColor, 32%)}
+.tabProductName a:hover, .tabProductBrand-Price a:hover {text-decoration: underline;}
+
+/* breadcrumbs */
+#Breadcrumb { @include inline-block-list(5px); height: 28px; margin-bottom: 1em;}
+#Breadcrumb li { line-height: 28px; margin: 0 16px 0 0}
+#Breadcrumb .crumbhome { padding-left: 0;}
+#Breadcrumb li a  { display: block; padding-left: 1em; background-color: $whiteDark}
+#Breadcrumb .crumbhome a, #Breadcrumb .crumbcategory a {color: $grayLight; position:relative; padding-right: 1em}
+#Breadcrumb li.act a  { cursor: default; background: transparent }
+.ie7 #Breadcrumb li a {display:block; height:28px; width:100px; float:left; white-space:no-wrap; overflow:hidden}
+.ie7 #Breadcrumb li span  {float:left; display:block; cursor:pointer}
+
+/*  Headers */
+#ProfileNav h4 span { display: block; line-height: 32px; padding-left: 12px; }
+#ProfileNav a { display: block; height: 30px; padding-left: 12px; white-space: nowrap; border-bottom: 1px solid #e5e5e5; line-height: 32px; }
+
+/*    Page: Search Page   */
+#search-result { position:absolute; z-index:10070; @include box-shadow(-3px 3px 6px -4px rgba(0, 0, 0, 0.4));}
+#search-result ul#sonuc { background: $white; padding: 1px 0; @include border-radius(4px); -webkit-background-clip: padding-box} 
+#search-result ul#sonuc li.bulunan { height:30px; cursor:pointer; padding: 0 8px 0 12px; font-size:14px; line-height:30px; white-space:nowrap; overflow:hidden}
+#search-result ul#sonuc li:hover, #search-result ul#sonuc li.secili { height:28px; line-height:28px;
+	@include background-image(linear-gradient(#6981f8, #3150f5));
+	color: $white; border-bottom: 1px solid #2641eb; border-top: 1px solid $white; text-shadow: 0 -1px 0 #2641eb;
+}
+
+#auto_submit                  {width:100%; display:block; overflow:hidden}
+.newuxselectC1                {width:24%; float:left; margin-top:1em}
+.newuxselectC2                {width:76%; float:right; margin-top:1em}
+.newuxselectC1 .labeled         {margin: 0; float:left}
+.newuxselectC2 .labeled         {margin: 0; float:right}
+.categoryList .label              {padding: 4px 0}
+.newuxselectview  li              {float:left; margin: 0 4px 4px 0}
+.newuxselectview  a             {display:block; width: 21px; height:21px; background: image_url("bgs/navigationbtns.png") no-repeat scroll -19px -30px; text-indent: -9999em}
+.newuxselectview  a.liste         {background-position: 2px -30px} 
+.newuxselectview  a.a-z         {background-position: -106px -30px} 
+.newuxselectview  a.z-a         {background-position: -127px -30px} 
+.newuxselectview  a.fiyat         {background-position: -169px -30px} 
+.newuxselectview  a.-fiyat          {background-position: -148px -30px} 
+.newuxselectview  a.coksatilan      {background-position: -40px -30px} 
+.newuxselectview  a.eklenmetarihi   {background-position: -62px -30px} 
+.newuxselectview  a.marka       {background-position: -84px -30px}
+.newuxselectview  a:hover, .newuxselectview li.selected a                     {background-position: -19px 0}
+.newuxselectview  a.liste:hover, .newuxselectview li.selected a.liste               {background-position: 2px 0} 
+.newuxselectview  a.a-z:hover, .newuxselectview li.selected a.a-z                 {background-position: -106px 0} 
+.newuxselectview  a.z-a:hover, .newuxselectview li.selected a.z-a                 {background-position: -127px 0} 
+.newuxselectview  a.fiyat:hover, .newuxselectview li.selected a.fiyat               {background-position: -169px 0} 
+.newuxselectview  a.-fiyat:hover, .newuxselectview  li.selected a.-fiyat              {background-position: -148px 0} 
+.newuxselectview  a.coksatilan:hover, .newuxselectview  li.selected a.coksatilan      {background-position: -40px 0} 
+.newuxselectview  a.eklenmetarihi:hover, .newuxselectview li.selected a.eklenmetarihi {background-position: -62px 0} 
+.newuxselectview  a.marka:hover, .newuxselectview li.selected a.marka           {background-position: -84px 0} 
+
+/*  Page: Product   */
+.photo_detail { float:left; position:relative; padding: 0; cursor: pointer; }
+.photo_detail img  { float: left; }
+.zooming  { z-index : 100; position : absolute; width: 200px; height: 200px; text-align: center; overflow: hidden; background: $white; border: 1px solid $grayccc; }
+.detailPopup  { z-index: 10; visibility: hidden; position: absolute; top: 0; left: 0; width: 50px; height: 50px; background: transparent; cursor:move; cursor: -webkit-zoom-in; cursor:-moz-zoom-in; text-align: center; vertical-align: middle; }
+#Product .photo_detail { border: 1px solid $black; }
+.productImageLink {display:table; position : relative; text-align:center; width: $productimage_width_x; height: $productimage_width_y}
+.zoom {display: table-cell; vertical-align: middle; text-align: center}
+
+#Product .productImageMain.noImage .zoom        { height: $productimage_width_y; }
+#Product .productImageMain.noImage .bigImage { position: absolute; top: 50%; margin-top: -32px; left: 50%; margin-left: -32px; }
+#Product .productImageThumbC                                { position: relative; width: 153px; margin: 0 auto; }
+#Product .productImageThumbnails { width: 153px; height: 53px; margin: 0 auto 1.6667em auto; overflow: hidden; position: relative; }
+#Product .productImageThumbnails ul         { width: 100%; overflow: hidden; position: relative; right: 0; }
+#Product .productImageThumbnails li         { width: 51px; height: 51px; float: left; text-align: center; }
+#Product .productImageThumbnails li a       { display: block; }
+#Product .thumbNavigation a, #Product .thumbNavigationV a   { position: absolute; top: 0; width: 48px; height: 48px; display: table; color: lighten($linkColor, 50);}
+#Product .thumbNavigation .icon, #Product .thumbNavigationV .icon   { display: table-cell; text-align: center; vertical-align: middle; font-size: 2em; }
+#Product .verticalThumb {height: auto}
+#Product .verticalThumb li {float: none}
+#Product .thumbNavigation a.tLeftButton     { left: -48px; }
+#Product .thumbNavigation a.tRightButton    { right: -46px; }
+#Product .thumbNavigationV a        { left: 0; right: 0; top: -48px}
+#Product .thumbNavigationV a.tRightButton    { top: auto; bottom: -51px}
+#quantity   {padding: 9px 4px; height: 17px; line-height:17px}
+#Product .marketprice .labeled                { text-decoration: line-through }
+#Product .addToBasketBtnC  { width: 100%; overflow: hidden; margin: 1.667em 0 1.667em }
+.tcretiketler               {float:right; width:32px; height:32px; text-indent: -9999em; margin: 0 8px 0 0}
+#Product .sociallist  {width:170px}
+.facebutton, .plusbutton, .tweetbutton  { width:59px; float:left; display:inline; margin: 1em 0 0; position:relative; z-index:3; overflow:hidden }
+.tweetbutton  { width:73px; margin: 1em -2px 0 2px}
+.plusbutton   { width:34px; margin-left:2px }
+.detaysecondaryactions { @include inline-block-list(5px) }
+
+/* Apple Zoom */
+#Product.apple .productImageMain {width:100%;height:100%;position: relative;}
+#Product.apple .productImageMain .zoom {overflow: hidden;}
+#Product.apple .productImageMain a {width:100%;height:100%;display:block;}
+#Product.apple .productImageMain img {margin:0 auto;display: block; cursor:pointer; cursor: -moz-zoom-in; cursor: -webkit-zoom-in;}
+#Product.apple .productImageMain img.zoomed   { cursor:move; }
+#Product.apple .productImageMain #closeZoomW          { width:30px; height:30px; position:absolute; z-index:510; top:10px; right:10px; cursor: pointer;}
+#Product.apple .productImageMain #closeZoom           { width:18px; height:19px;  @include background-opacity($black, 0.5); @include color-opacity($white, 0.5); padding:3px; @include border-radius(20px); letter-spacing:1px;}
+#Product.apple .productImageMain #closeZoom:hover       { @include background-opacity($black, 0.8); @include color-opacity($white, 0.8);}
+#Product.apple .productImageMain #closeZoom span.x      {  @include background-opacity($black, 0.5); @include border-radius(12px); @include color-opacity($white, 0.8); display: block; font-weight: bold; height: 19px; font-size: 18px; font-weight: bold; height: 19px; line-height: 15px; padding: 0 0 0 5px; width: 13px;}
+
+#Variations .varyasyon_secimler a.varyasyonresim  {width:50px; height:50px; display:block; text-align:center; border:2px transparent solid; padding:0; @include border-radius(0); }
+#Product .varyasyonstokyok            {@include opacity(.4);}
+#Product .varyasyonstokyok:hover        {background: transparent}
+#ProductDesc ul, #ProductDesc ol   { margin: 0 0 1.1250em 1.1250em; padding: 0; line-height: 1.5; }
+#Product .productDescription { margin: 0 0 1em }
+
+/* taksit gorunumleri */
+#tks, .tksdetayda {
+	$grid-padding: 0;
+	$total-columns: 17;
+	@include container;
+	@include clearfix;
+	li {
+		@include span-columns(4, 17);
+	}
+}
+
+.urundetaytaksit_ozet {
+	width: columns(7, 24);
+	float: left;
+}
+.urundetaytaksit_detay {
+	width: columns(17, 24)+1;
+	float: right;
+	@include container;
+}
+
+.urundetaytaksit_ozet               { position:relative; top:0; left: 1px; z-index: 2}
+.urundetaytaksit_ozet li            {display:block; width:100%; float:left; height:52px; background: $whiteDarker; border: 1px solid $grayLighter; border-right: 0; border-left-width: 4px}
+.urundetaytaksit_ozet li.active     { background: $white }
+.urundetaytaksit_ozet a           {display:block; height:100%; width:200px; padding: 2px 0 2px 56px; line-height:48px; white-space:nowrap; color: $blue; background-position: 2px center}
+
+// bu renkleri degistirmeyin
+.urundetaytaksit_ozet li.garanti, .urundetaytaksit_ozet li.garantiyeni, .urundetaytaksit_ozet li.denizbank  {border-left-color: #83c53d}
+.urundetaytaksit_ozet li.akbank {border-left-color: #f6b801}
+.urundetaytaksit_ozet li.halkbank           {border-left-color: #f4491a}
+.urundetaytaksit_ozet li.yapikredi, .urundetaytaksit_ozet li.anadolubank            {border-left-color: #701f7e}
+.urundetaytaksit_ozet li.isbank {border-left-color: #e01d6e}
+.urundetaytaksit_ozet li.finansbank, .urundetaytaksit_ozet  li.bankasya {border-left-color: #004e90}
+
+.urundetaytaksit_detay              { border: 1px solid $grayLighter; }
+.urundetaytaksit_detay div          { width: 100%; padding: 12px; }
+#tks p#taksitsectim   { font-family: $serifFontFamily; font-size: 15px; font-style: italic}
+#tks p, .tksdetayda p   {text-align:center; line-height:1.8; margin: 0; white-space:nowrap; overflow:hidden}
+#tks .taksitsectimli p  {border-right: 1px solid $green; border-left: 1px solid $green}
+#tks .taksitsectimli .taksitkomisyon  {border-bottom: 1px solid $green}
+#tks .taksitsectimli .taksitadet  {border-top: 1px solid $green;}
+#tks p.taksitadet, .tksdetayda p.taksitadet     { font-size: 72px; line-height:1.1}
+#tks p.taksitadet, .tksdetayda p.taksitadet     { text-shadow: 0 1px 0 $white; color: $black }
+#tks p.taksitcopy, .tksdetayda p.taksitcopy     {letter-spacing: 4px;}
+#tks p.taksitkomisyon, .tksdetayda p.taksittotal  {color: $green; background: $whiteDarker}
+#tks p#taksitsectim, .tksdetayda p#taksitsectim     {color: $white; background: $green; text-shadow: 0 1px 0 $green; border-bottom: 1px solid $green}
+.taksitkomisyon {background: darken($whiteDarker, 2)}
+.taksittotal {background: darken($whiteDarker, 4)}
+.taksitac {background: darken($whiteDarker, 6)}
+.taksitcopy {background: darken($whiteDarker, 8)}
+.taksitadet {background: darken($whiteDarker, 10)}
+
+.moreuserfriendly li {float:left; margin: 0 6px 6px 0}
+.moreuserfriendly li.yenivaryasyontitle {font-weight:bold; display:block; float:none}
+.moreuserfriendly a {display:block; padding: 1px 6px }
+.categoryList .moreuserfriendly a   {display:inline-block; margin: 0 6px 8px 0}
+.moreuserfriendly span, .newuxselectview  li span  {padding: 4px 6px; margin-right: 8px; font-size: 12px}
+.ie7 .moreuserfriendly span, .ie7 .newuxselectview  li span  {float:left; height:26px; line-height:26px}
+.ie7 .newuxselectview li span     {height:14px; line-height:14px}
+.stock {position:relative}
+
+/*    Footer    */
+#footertabs {
+	$total-columns: 15;
+	@include container;
+	@include clearfix;
+	&>div {
+		@include span-columns(3, 15);
+	}
+	#ebultenkayit {
+	 @include post(0); 
+	}
+}
+#social  a { height: 30px; display: block}
+#social  li.noicon a { text-indent: 0}
+#Footer .tacirnet, #Footer .darktacirnet, #Footer .rapidssl, #Footer .darkrapidssl, #Footer .html5icon, #Footer .darkhtml5icon {display:block; float: left; text-indent: -9999em; width: 104px; height:26px; background: image_url("logos/tacirnetimza.png") no-repeat scroll -194px 0 transparent}
+#Footer .rapidssl, #Footer .darkrapidssl { width:112px; margin-right: 16px; float:left; background-position: 0 0}
+#Footer .html5icon, #Footer .darkhtml5icon { width:76px; margin-right: 16px; float:left; background-position: -112px 0}
+#Footer .darktacirnet, #Footer .darkrapidssl, #Footer .darkhtml5icon {background-image: image_url("logos/darktacirnetimza.png")}
+.highlight { background-color: lighten($linkColor, 25) }
+.hilite, #banklogo a:hover, .checkfiltreleme label:hover, .inlinefiltreleme label:hover { color: lighten($linkColor, 10) }
+
+
+/*  Box, simple, tabbox   */
+.tabBox .tabNavC, .module .moduleTitle  { background: $whiteDark; clear:both; }
+.accordion ul a:hover, .accordion ul a.active { color: $blueDark; }
+
+
+/*  Header    */
+#tacirnetlogo a   { display: block; max-width: 100%; height: 90px; background: transparent image_url("logos/yenilogo.jpg") no-repeat }
+#logo a img   { max-width: 100%; height: auto }
+
+/*    Banner Slider   */
+a.next, a.prev  {display:block; width: 48px; height:72px; position: absolute; top: 40%; left: 12px; z-index: 101; font: 64px/72px monospace; text-align:center}
+a.next  {left: auto; right: 12px}
+#BannerTopCol1 .flex-control-nav  {position:relative; clear:both; text-align:center; left:0; top: -49px}
+#BannerTopCol1 .flex-control-nav li {display:inline-block; height:24px; position:relative; margin-right:6px}
+.ie7 #BannerTopCol1 .flex-control-nav li  {display:inline; float:left}
+#BannerTopCol1 .flex-control-nav a  {display:block; width:24px; line-height:24px; text-align:center; cursor: pointer; background: $blueDark; color: $blue; @include border-radius(4px);}
+#BannerTopCol1 .flex-control-nav a.active {background: $white; color: $blueDark}
+
+#stok_adet .tukendi, #stok_adet .sonurunler  { color: $orange }
+.filtreadet  { color: $grayccc; padding-left: 4px; }
+
+.moreuserfriendly a {
+	border: 1px solid $blueDark; color: $white; background: $blue; 
+	@include background-image(linear-gradient($blue, $blueDark));
+	text-shadow:  0 -1px 0 $blueDark
+}
+.moreuserfriendly a.selected, .moreuserfriendly a:hover  {background: $blueDark; color: $white; border: 1px solid $blue}
+
+/*  Page: ProductZoom */
+#Product .productImageThumbnails li a           { width: 45px; height: 45px; border: 2px solid transparent; }
+#Product .productImageThumbnails li.current a   { border-color: lighten($linkColor, 5) }
+#Product .productImageThumbnails li a:hover     { border-color: darken($linkColor, 5) }
+
+#Variations .varyasyon_secimler a.varyasyonresim  {background:$white}
+#Variations .varyasyon_secimler a.selected + a.varyasyonresim {border-color: darken($linkColor, 5) }
+
+// ie 7 inline-block olmayanlar
+.ie7 {
+	body {
+		cursor: default;
+	}
+	.tabs,
+	#UserMenu,
+	#Breadcrumb,
+	#AccountLogin .loginsocialbox ul,
+	.tacirmahlas {
+		li {
+			display:inline;
+		}
+	}
 }

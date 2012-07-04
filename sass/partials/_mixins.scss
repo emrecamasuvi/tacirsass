@@ -1,12 +1,8 @@
 // Clearfix
 @mixin clearfix() {
-  *zoom: 1;
-  &:before,
   &:after {
+    content: '';
     display: table;
-    content: "";
-  }
-  &:after {
     clear: both;
   }
 }
@@ -24,10 +20,9 @@
 // responsive design icin elementleri bloka yay
 @mixin yay(){
     display: block;
-    clear: both;
-    width: 100%;
     float: none;
-    margin: 0;
+    width: auto;
+    margin-left: 0;
 }
 
 // mixin image replacement
@@ -40,6 +35,28 @@
   color: transparent;
   background: $url;
   background-repeat: no-repeat;
+}
+
+@mixin background-opacity($color, $opacity: 0.1) {
+    background: $color; /* The Fallback */
+    background: rgba($color, $opacity);
+}
+
+@mixin color-opacity($color, $opacity: 0.1) {
+    color: $color; /* The Fallback */
+    color: rgba($color, $opacity);
+}
+
+@mixin respimage($pad: 0){
+  max-width: 100%;
+  height: auto;
+  width: auto; /* Fix for IE */
+  padding: $pad;
+   
+  /* Box Sizing */
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 // block elementi ortala
