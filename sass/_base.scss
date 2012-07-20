@@ -5,67 +5,67 @@ ayrica sass'in compass ve susy gemleri yuklu olmali
 */
 
 // yeni reset normalize
-@import "partials/normalize";
+@import "../../../../skeleton_v1/media/sass/partials/normalize";
 
 // compass kutuphanesinden gelenler
 @import "compass";
 @import "variables";
 
 // degiskenler
-@import "partials/mixins";
+@import "../../../../skeleton_v1/media/sass/partials/mixins";
 
 // Page structure
-@import "partials/scaffolding";
+@import "../../../../skeleton_v1/media/sass/partials/scaffolding";
 
 // Base CSS
-@import "partials/code";
-@import "partials/forms";
-@import "partials/tables";
+@import "../../../../skeleton_v1/media/sass/partials/code";
+@import "../../../../skeleton_v1/media/sass/partials/forms";
+@import "../../../../skeleton_v1/media/sass/partials/tables";
 
 // Components: common
-@import "partials/dropdowns";
-@import "partials/wells";
-@import "partials/component-animations";
-@import "partials/close";
-@import "partials/css-arrows";
+@import "../../../../skeleton_v1/media/sass/partials/dropdowns";
+@import "../../../../skeleton_v1/media/sass/partials/wells";
+@import "../../../../skeleton_v1/media/sass/partials/component-animations";
+@import "../../../../skeleton_v1/media/sass/partials/close";
+@import "../../../../skeleton_v1/media/sass/partials/css-arrows";
 
 // Components: Buttons & Alerts
-@import "partials/buttons";
-@import "partials/button-groups";
-@import "partials/alerts"; // Note: alerts share common CSS with buttons and thus have styles in buttons
+@import "../../../../skeleton_v1/media/sass/partials/buttons";
+@import "../../../../skeleton_v1/media/sass/partials/button-groups";
+@import "../../../../skeleton_v1/media/sass/partials/alerts"; // Note: alerts share common CSS with buttons and thus have styles in buttons
 
 // Components: Nav
-@import "partials/navs";
-@import "partials/navbar";
-@import "partials/breadcrumbs";
-@import "partials/pagination";
-@import "partials/pager";
+@import "../../../../skeleton_v1/media/sass/partials/navs";
+@import "../../../../skeleton_v1/media/sass/partials/navbar";
+@import "../../../../skeleton_v1/media/sass/partials/breadcrumbs";
+@import "../../../../skeleton_v1/media/sass/partials/pagination";
+@import "../../../../skeleton_v1/media/sass/partials/pager";
 
 // Components: Popovers
-@import "partials/modals";
-@import "partials/tooltip";
-@import "partials/popovers";
+@import "../../../../skeleton_v1/media/sass/partials/modals";
+@import "../../../../skeleton_v1/media/sass/partials/tooltip";
+@import "../../../../skeleton_v1/media/sass/partials/popovers";
 
 // Components: Misc
-@import "partials/thumbnails";
-@import "partials/type";
-@import "partials/badges";
-@import "partials/labels";
-@import "partials/progress-bars";
-@import "partials/accordion";
-@import "partials/carousel";
-@import "partials/hero-unit";
+@import "../../../../skeleton_v1/media/sass/partials/thumbnails";
+@import "../../../../skeleton_v1/media/sass/partials/type";
+@import "../../../../skeleton_v1/media/sass/partials/badges";
+@import "../../../../skeleton_v1/media/sass/partials/labels";
+@import "../../../../skeleton_v1/media/sass/partials/progress-bars";
+@import "../../../../skeleton_v1/media/sass/partials/accordion";
+@import "../../../../skeleton_v1/media/sass/partials/carousel";
+@import "../../../../skeleton_v1/media/sass/partials/hero-unit";
 
 // esnek web
 @media (min-width: 240px) {
-	@import "partials/responsive";
+	@import "../../../../skeleton_v1/media/sass/partials/responsive";
 }
 
 // Utility classes
 @import "susy"; // susy grid
-@import "partials/utilities"; // Has to be last to override when necessary
-@import "partials/ie"; // IE stylesheet
-@import "partials/addons"; // Default Theme Style Fixes
+@import "../../../../skeleton_v1/media/sass/partials/utilities"; // Has to be last to override when necessary
+@import "../../../../skeleton_v1/media/sass/partials/ie"; // IE stylesheet
+@import "../../../../skeleton_v1/media/sass/partials/addons"; // Default Theme Style Fixes
 $experimental-support-for-khtml:false;
 $experimental-support-for-ms:false;
 $legacy-support-for-ie  : false;

@@ -82,7 +82,7 @@
 // Navbar forms
 .navbar-form {
   margin-bottom: 0; // remove default bottom margin
-  @include clearfix();
+  @extend .clearfix;
   input,
   select,
   .radio,

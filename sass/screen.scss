@@ -12,7 +12,7 @@
 		$gutter-width: 1.65em;
 		background: $white;
 		@include container;
-		@include clearfix;
+		@extend .clearfix;
 	}
 	#Content & {
 		$total-columns: 24;
@@ -21,6 +21,9 @@
 	}
 	#Nav & {
 		overflow: visible;
+	}
+	#Product #Content & {
+		$container-width: 100%;
 	}
 }
 
@@ -227,7 +230,7 @@
 	$grid-padding: 0;
 	$total-columns: 12;
 	@include container;
-	@include clearfix;
+	@extend .clearfix;
 	.tabProduct {
 		@include span-columns(4, 12);
 		min-height: ($tabproductimage_width_y * 3) / 2;
@@ -239,7 +242,7 @@
 	 @include post(0);
 	}
 }
-.tabContent, .tabProductImage, .tabListProductimg { position: relative; }
+.tabContent, .tabProductImage, .tabListProductimg, .posrel { position: relative; }
 .tabC { padding: $baseFontSize 0; }
 
 // productlist urun gorunumu
@@ -286,7 +289,7 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 /*  Nav   */
 .cmsmenu {
 	position:relative;
-	@include clearfix;
+	@extend .clearfix;
 	#Nav & {
 		overflow: visible;
 	}
@@ -327,7 +330,6 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 .accordion ul a { padding: 0 0 0 6px; border-left: 1px dotted $grayLighter }
 .accordion ul a:hover, .accordion ul a.active { border-color: $grayccc }
 .accordion .dcjq-icon {float:right; display:block; padding: 0 8px 0 12px; width:8px; margin: -28px 0 0 0; text-align:center; font-weight:bold; opacity:0.5}
-.ie7 .accordion .dcjq-icon, .ie8 .accordion .dcjq-icon  {font-size:11px}
 .tacirnews li { padding: 0 5px 5px; line-height: 24px; margin: 5px auto; border-bottom: 1px dotted $grayLighter}
 
 /*  Category Pullmenu */
@@ -353,13 +355,11 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 	cursor:pointer;
 	width: columns(10,12);
 }
-.ie7 .chzn-select {margin: 1.2em 0 0 4px}
 
 /* Sepetim */
 .sepetim {
 	width:308px; @include background-opacity($white, 0.96); position:absolute; z-index:10011; left:0; right:0; top:0; margin: auto; @include box-shadow(0 0 6px rgba(0, 0, 0, 0.6));
 }
-.ie7 .sepetim {left:40%}
 .sepetim p  {margin:0}
 .sepetim, .sepetim .enalt, .sepetim .enust  {@include border-bottom-left-radius(4px); @include border-bottom-right-radius(4px);}
 .sepetim .enalt { background-color: $whiteDarker; border: 0; @include box-shadow(inset 0 2px 2px rgba(0, 0, 0, 0.05)); color:$blue; text-align:center; margin:0; width:100%; overflow:hidden}
@@ -393,42 +393,44 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 .tabProductLabels span.catmini-yeni, .tabProductLabels span.catmini-yeni-eklenenler   {background-position: left top; top: 36px;}
 .tabProductLabels span.catmini-kargosu-bedava   {background-position: right bottom; width:27px; height: 20px; top: auto; bottom: 0 }
 .tabProductLabels span.catmini-kampanyal  {background-position: center center; left: 0; right: auto; top: auto; bottom: 0;}
-.tabProductName h3 {margin: 0 0 4px; font-family: $sansFontFamily;}
+.tabProductName h3 {margin: 4px 0; font-family: $sansFontFamily;}
 .tabProductayrac {margin: 0 4px}
 .tabProductName a {color: lighten($linkColor, 24%); display: block;}
 .tabProductBrand-Price a, .tabProductayrac {color: lighten($linkColor, 32%)}
 .tabProductName a:hover, .tabProductBrand-Price a:hover {text-decoration: underline;}
 
 /* breadcrumbs */
-#Breadcrumb { @include inline-block-list(5px); height: 28px; margin-bottom: 1em;}
+#Breadcrumb {
+	@include inline-block-list(5px); height: 28px; margin: 3em 0;
+	#Category & {margin: 0 0 1em;}
+}
 #Breadcrumb li { line-height: 28px; margin: 0 16px 0 0}
 #Breadcrumb .crumbhome { padding-left: 0;}
 #Breadcrumb li a  { display: block; padding-left: 1em; background-color: $whiteDark}
 #Breadcrumb .crumbhome a, #Breadcrumb .crumbcategory a {color: $grayLight; position:relative; padding-right: 1em}
 #Breadcrumb li.act a  { cursor: default; background: transparent }
-.ie7 #Breadcrumb li a {display:block; height:28px; width:100px; float:left; white-space:no-wrap; overflow:hidden}
-.ie7 #Breadcrumb li span  {float:left; display:block; cursor:pointer}
+#Breadcrumb .navBackbtn a {background: transparent; padding: 0; color: $grayccc;}
 
 /*  Headers */
 #ProfileNav h4 span { display: block; line-height: 32px; padding-left: 12px; }
-#ProfileNav a { display: block; height: 30px; padding-left: 12px; white-space: nowrap; border-bottom: 1px solid #e5e5e5; line-height: 32px; }
+#ProfileNav a {display: block; height: 30px; padding-left: 12px; white-space: nowrap; border-bottom: 1px solid #e5e5e5; line-height: 32px;
+	i {margin-right: 10px;}
+}
 
 /*    Page: Search Page   */
 #search-result { position:absolute; z-index:10070; @include box-shadow(-3px 3px 6px -4px rgba(0, 0, 0, 0.4));}
-#search-result ul#sonuc { background: $white; padding: 1px 0; @include border-radius(4px); -webkit-background-clip: padding-box} 
+#search-result ul#sonuc { background: $white; padding: 1px 0; @include border-radius(4px); -webkit-background-clip: padding-box}
 #search-result ul#sonuc li.bulunan { height:30px; cursor:pointer; padding: 0 8px 0 12px; font-size:14px; line-height:30px; white-space:nowrap; overflow:hidden}
-#search-result ul#sonuc li:hover, #search-result ul#sonuc li.secili { height:28px; line-height:28px;
-	@include background-image(linear-gradient(#6981f8, #3150f5));
-	color: $white; border-bottom: 1px solid #2641eb; border-top: 1px solid $white; text-shadow: 0 -1px 0 #2641eb;
+#search-result ul#sonuc li:hover, #search-result ul#sonuc li.secili { height:28px; line-height:28px; background: #6981f8; @include background-image(linear-gradient(#6981f8, #3150f5)); color: $white; border-bottom: 1px solid #2641eb; border-top: 1px solid $white; text-shadow: 0 -1px 0 #2641eb;
 }
 
-#auto_submit                  {width:100%; display:block; overflow:hidden}
-.newuxselectC1                {width:24%; float:left; margin-top:1em}
-.newuxselectC2                {width:76%; float:right; margin-top:1em}
-.newuxselectC1 .labeled         {margin: 0; float:left}
-.newuxselectC2 .labeled         {margin: 0; float:right}
+#auto_submit                  {@extend .clearfix;}
+.newuxselectC1, .newuxselectC2  {float:left; margin-top:1em}
+.newuxselectC2, .newuxselectC2 .labeled  {float:right}
+.newuxselectC1 .labeled, .newuxselectC2 .labeled {margin: 0; float:left}
 .categoryList .label              {padding: 4px 0}
 .newuxselectview  li              {float:left; margin: 0 4px 4px 0}
+.newuxselectview  li span  {padding: 4px 6px; margin-right: 8px; font-size: 84%; color: $grayLight;}
 .newuxselectview  a             {display:block; width: 21px; height:21px; background: image_url("bgs/navigationbtns.png") no-repeat scroll -19px -30px; text-indent: -9999em}
 .newuxselectview  a.liste         {background-position: 2px -30px} 
 .newuxselectview  a.a-z         {background-position: -106px -30px} 
@@ -452,13 +454,23 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 .photo_detail { float:left; position:relative; padding: 0; cursor: pointer; }
 .photo_detail img  { float: left; }
 .zooming  { z-index : 100; position : absolute; width: 200px; height: 200px; text-align: center; overflow: hidden; background: $white; border: 1px solid $grayccc; }
+.mainImage  {position: relative; top: 0; left: 0;}
 .detailPopup  { z-index: 10; visibility: hidden; position: absolute; top: 0; left: 0; width: 50px; height: 50px; background: transparent; cursor:move; cursor: -webkit-zoom-in; cursor:-moz-zoom-in; text-align: center; vertical-align: middle; }
 #Product .photo_detail { border: 1px solid $black; }
-.productImageLink {display:table; position : relative; text-align:center; width: $productimage_width_x; height: $productimage_width_y}
+.productImageLink {
+	display:table; position : relative; text-align:center;
+	width: $productimage_width_x;
+	height: $productimage_width_y;
+	.noImage & {
+		@if ($productimage_width_y < 320){
+			height: round($productimage_width_y*3/2);
+		} @else {
+			height: round($productimage_width_y*5/8);
+		}
+	}
+}
 .zoom {display: table-cell; vertical-align: middle; text-align: center}
 
-#Product .productImageMain.noImage .zoom        { height: $productimage_width_y; }
-#Product .productImageMain.noImage .bigImage { position: absolute; top: 50%; margin-top: -32px; left: 50%; margin-left: -32px; }
 #Product .productImageThumbC                                { position: relative; width: 153px; margin: 0 auto; }
 #Product .productImageThumbnails { width: 153px; height: 53px; margin: 0 auto 1.6667em auto; overflow: hidden; position: relative; }
 #Product .productImageThumbnails ul         { width: 100%; overflow: hidden; position: relative; right: 0; }
@@ -472,15 +484,34 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 #Product .thumbNavigation a.tRightButton    { right: -46px; }
 #Product .thumbNavigationV a        { left: 0; right: 0; top: -48px}
 #Product .thumbNavigationV a.tRightButton    { top: auto; bottom: -51px}
-#quantity   {padding: 9px 4px; height: 17px; line-height:17px}
+#quantity   {padding: 9px 4px; height: 17px; line-height:17px; text-align: center;}
 #Product .marketprice .labeled                { text-decoration: line-through }
 #Product .addToBasketBtnC  { width: 100%; overflow: hidden; margin: 1.667em 0 1.667em }
 .tcretiketler               {float:right; width:32px; height:32px; text-indent: -9999em; margin: 0 8px 0 0}
+.stock {position:relative}
 #Product .sociallist  {width:170px}
 .facebutton, .plusbutton, .tweetbutton  { width:59px; float:left; display:inline; margin: 1em 0 0; position:relative; z-index:3; overflow:hidden }
 .tweetbutton  { width:73px; margin: 1em -2px 0 2px}
 .plusbutton   { width:34px; margin-left:2px }
-.detaysecondaryactions { @include inline-block-list(5px) }
+.detaysecondaryactions { @include inline-block-list(10px) }
+.detaysecondaryactions li:first-child { padding-left: 0; }
+#ratingcontainer {position: relative;}
+#detayrating, #id_rating, #listeme-ekle {color: $grayccc;}
+#sondetayrating {color: $linkColorHover;}
+#id_rating {position: absolute; left: 10px; top: 0; z-index: 2;}
+#id_rating i:hover, #id_rating i.hovered, #listeme-ekle:hover {color: $linkColor;}
+#buna-bayildim i {font-size: 80%;}
+#buna-bayildim:hover {color: $pink;}
+#buna-bayildim { @include transition(color .6s ease-in); }
+.bunabayildiyenler { display:inline-block; padding: 0 3px; @include css-arrow(left, round($baseLineHeight/4), $grayLighter, 1px, solid); font-style: normal; margin-left: 8px}
+.UrunBilgisiYorumTutucu {@extend .clearfix}
+.userreviewer {@include span-columns(2,12); display: table}
+.userreviewcomment {@include span-columns(9 omega,12); padding: $baseLineHeight/2 $baseLineHeight; @include css-arrow(left, round($baseLineHeight), $whiteDarker, 1px, solid);
+	&:before, &:after {top: $baseLineHeight*2;}
+}
+.userreviewer p {display: table-cell; vertical-align: middle; text-align: right; line-height: $baseLineHeight*4;}
+.userreviewratings {color: $grayccc; font-size: 120%;}
+.userreviewratings .usrrated {color: lighten($grayccc, 6); font-size: 84%; margin-right: $baseLineHeight/3;}
 
 /* Apple Zoom */
 #Product.apple .productImageMain {width:100%;height:100%;position: relative;}
@@ -493,7 +524,24 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 #Product.apple .productImageMain #closeZoom:hover       { @include background-opacity($black, 0.8); @include color-opacity($white, 0.8);}
 #Product.apple .productImageMain #closeZoom span.x      {  @include background-opacity($black, 0.5); @include border-radius(12px); @include color-opacity($white, 0.8); display: block; font-weight: bold; height: 19px; font-size: 18px; font-weight: bold; height: 19px; line-height: 15px; padding: 0 0 0 5px; width: 13px;}
 
-#Variations .varyasyon_secimler a.varyasyonresim  {width:50px; height:50px; display:block; text-align:center; border:2px transparent solid; padding:0; @include border-radius(0); }
+#Variations .varyasyon_secimler a.varyasyonresim, #Product .productImageThumbnails li a {
+	width: $widthveradius;
+	height: $widthveradius; 
+	@include border-radius($widthveradius/2);
+	border: 2px solid transparent;
+	outline: none;
+	& img {
+		@include border-radius($widthveradius/2);
+	}
+}
+#Variations .varyasyon_secimler li  {float: left; margin: 0 6px 6px 0; position: relative;}
+#Variations .varyasyon_secim  {position: absolute; left: $widthveradius/4; top: $widthveradius/2; z-index: 2;}
+#Variations .resimsizvaryasyon .varyasyon_secim  {position: relative; left: auto; top: auto; z-index: 2;}
+#Variations .varyasyon_secimler a.varyasyonresim {display:block; text-align:center; padding:0; background:$white}
+#Variations .varyasyon_secimler a.selected + a.varyasyonresim {border-color: $gray}
+#Product .productImageThumbnails li.current a   { border-color: $gray }
+#Product .productImageThumbnails li a:hover     { border-color: $grayDark }
+
 #Product .varyasyonstokyok            {@include opacity(.4);}
 #Product .varyasyonstokyok:hover        {background: transparent}
 #ProductDesc ul, #ProductDesc ol   { margin: 0 0 1.1250em 1.1250em; padding: 0; line-height: 1.5; }
@@ -504,7 +552,7 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 	$grid-padding: 0;
 	$total-columns: 17;
 	@include container;
-	@include clearfix;
+	@extend .clearfix;
 	li {
 		@include span-columns(4, 17);
 	}
@@ -524,8 +572,10 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 .urundetaytaksit_ozet li            {display:block; width:100%; float:left; height:52px; background: $whiteDarker; border: 1px solid $grayLighter; border-right: 0; border-left-width: 4px}
 .urundetaytaksit_ozet li.active     { background: $white }
 .urundetaytaksit_ozet a           {display:block; height:100%; width:200px; padding: 2px 0 2px 56px; line-height:48px; white-space:nowrap; color: $blue; background-position: 2px center}
+.check-date .controls {position:relative}
 
-// bu renkleri degistirmeyin
+
+// bu renkleri degistirmeyin bankalarin kurumsal renkleridir
 .urundetaytaksit_ozet li.garanti, .urundetaytaksit_ozet li.garantiyeni, .urundetaytaksit_ozet li.denizbank  {border-left-color: #83c53d}
 .urundetaytaksit_ozet li.akbank {border-left-color: #f6b801}
 .urundetaytaksit_ozet li.halkbank           {border-left-color: #f4491a}
@@ -551,20 +601,17 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 .taksitcopy {background: darken($whiteDarker, 8)}
 .taksitadet {background: darken($whiteDarker, 10)}
 
-.moreuserfriendly li {float:left; margin: 0 6px 6px 0}
-.moreuserfriendly li.yenivaryasyontitle {font-weight:bold; display:block; float:none}
-.moreuserfriendly a {display:block; padding: 1px 6px }
-.categoryList .moreuserfriendly a   {display:inline-block; margin: 0 6px 8px 0}
-.moreuserfriendly span, .newuxselectview  li span  {padding: 4px 6px; margin-right: 8px; font-size: 12px}
-.ie7 .moreuserfriendly span, .ie7 .newuxselectview  li span  {float:left; height:26px; line-height:26px}
-.ie7 .newuxselectview li span     {height:14px; line-height:14px}
-.stock {position:relative}
+.categoryList {
+	.alert {@extend .clearfix}
+	a, h3  {float:left; margin: 0 6px 6px 0}
+	h3  {margin-top: 4px}
+}
 
 /*    Footer    */
 #footertabs {
 	$total-columns: 15;
 	@include container;
-	@include clearfix;
+	@extend .clearfix;
 	&>div {
 		@include span-columns(3, 15);
 	}
@@ -572,14 +619,12 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 	 @include post(0); 
 	}
 }
-#social  a { height: 30px; display: block}
-#social  li.noicon a { text-indent: 0}
 #Footer .tacirnet, #Footer .darktacirnet, #Footer .rapidssl, #Footer .darkrapidssl, #Footer .html5icon, #Footer .darkhtml5icon {display:block; float: left; text-indent: -9999em; width: 104px; height:26px; background: image_url("logos/tacirnetimza.png") no-repeat scroll -194px 0 transparent}
 #Footer .rapidssl, #Footer .darkrapidssl { width:112px; margin-right: 16px; float:left; background-position: 0 0}
 #Footer .html5icon, #Footer .darkhtml5icon { width:76px; margin-right: 16px; float:left; background-position: -112px 0}
 #Footer .darktacirnet, #Footer .darkrapidssl, #Footer .darkhtml5icon {background-image: image_url("logos/darktacirnetimza.png")}
 .highlight { background-color: lighten($linkColor, 25) }
-.hilite, #banklogo a:hover, .checkfiltreleme label:hover, .inlinefiltreleme label:hover { color: lighten($linkColor, 10) }
+.hilite, #banklogo a:hover, .checkfiltreleme label:hover, .inlinefiltreleme label:hover {color: lighten($linkColor, 10)}
 
 
 /*  Box, simple, tabbox   */
@@ -588,15 +633,14 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 
 
 /*  Header    */
-#tacirnetlogo a   { display: block; max-width: 100%; height: 90px; background: transparent image_url("logos/yenilogo.jpg") no-repeat }
-#logo a img   { max-width: 100%; height: auto }
+#tacirnetlogo a   {display: block; max-width: 100%; height: 90px; background: transparent image_url("logos/yenilogo.jpg") no-repeat }
+#logo a img   {max-width: 100%; height: auto}
 
 /*    Banner Slider   */
 a.next, a.prev  {display:block; width: 48px; height:72px; position: absolute; top: 40%; left: 12px; z-index: 101; font: 64px/72px monospace; text-align:center}
 a.next  {left: auto; right: 12px}
 #BannerTopCol1 .flex-control-nav  {position:relative; clear:both; text-align:center; left:0; top: -49px}
 #BannerTopCol1 .flex-control-nav li {display:inline-block; height:24px; position:relative; margin-right:6px}
-.ie7 #BannerTopCol1 .flex-control-nav li  {display:inline; float:left}
 #BannerTopCol1 .flex-control-nav a  {display:block; width:24px; line-height:24px; text-align:center; cursor: pointer; background: $blueDark; color: $blue; @include border-radius(4px);}
 #BannerTopCol1 .flex-control-nav a.active {background: $white; color: $blueDark}
 
@@ -604,19 +648,12 @@ a.next  {left: auto; right: 12px}
 .filtreadet  { color: $grayccc; padding-left: 4px; }
 
 .moreuserfriendly a {
-	border: 1px solid $blueDark; color: $white; background: $blue; 
-	@include background-image(linear-gradient($blue, $blueDark));
-	text-shadow:  0 -1px 0 $blueDark
+	border: 1px solid $grayccc; color: $grayLight; background: $grayLight; 
+	@include background-image(linear-gradient($grayLighter, $grayccc));
+	text-shadow:  0 -1px 0 $white;
+	text-align: center;
 }
-.moreuserfriendly a.selected, .moreuserfriendly a:hover  {background: $blueDark; color: $white; border: 1px solid $blue}
-
-/*  Page: ProductZoom */
-#Product .productImageThumbnails li a           { width: 45px; height: 45px; border: 2px solid transparent; }
-#Product .productImageThumbnails li.current a   { border-color: lighten($linkColor, 5) }
-#Product .productImageThumbnails li a:hover     { border-color: darken($linkColor, 5) }
-
-#Variations .varyasyon_secimler a.varyasyonresim  {background:$white}
-#Variations .varyasyon_secimler a.selected + a.varyasyonresim {border-color: darken($linkColor, 5) }
+.moreuserfriendly a.selected, .moreuserfriendly a:hover  {color: $gray; border: 1px solid $gray}
 
 // ie 7 inline-block olmayanlar
 .ie7 {

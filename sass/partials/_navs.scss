@@ -74,7 +74,7 @@
 // Common styles
 .nav-tabs,
 .nav-pills {
-  @include clearfix();
+  @extend .clearfix;
 }
 .nav-tabs > li,
 .nav-pills > li {
@@ -259,7 +259,7 @@
 
 // Clear any floats
 .tabbable {
-  @include clearfix();
+  @extend .clearfix;
 }
 .tab-content {
   display: table; // prevent content from running below tabs

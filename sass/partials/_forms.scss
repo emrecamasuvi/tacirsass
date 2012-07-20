@@ -26,7 +26,7 @@ legend {
   line-height: $baseLineHeight * 2;
   color: $linkColor;
   border: 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid $grayLighter;
 
   // Small
   small {
@@ -57,7 +57,7 @@ textarea {
 label {
   display: block;
   margin-bottom: 5px;
-  color: $grayDark;
+  color: $textColor;
 }
 
 // Inputs, Textareas, Selects
@@ -273,7 +273,7 @@ input[readonly],
 select[readonly],
 textarea[readonly] {
   background-color: $inputDisabledBackground;
-  border-color: #ddd;
+  border-color: $grayLighter;
   cursor: not-allowed;
 }
 // Explicitly reset the colors here
@@ -307,11 +307,11 @@ input[type="checkbox"][readonly] {
 input:focus:required:invalid,
 textarea:focus:required:invalid,
 select:focus:required:invalid {
-  color: #b94a48;
-  border-color: #ee5f5b;
+  color: lighten($red, 10);
+  border-color: lighten($red, 24);
   &:focus {
-    border-color: darken(#ee5f5b, 10%);
-    @include box-shadow(0 0 6px lighten(#ee5f5b, 20%));    
+    border-color: lighten($red, 12%);
+    @include box-shadow(0 0 6px lighten($red, 32%));    
   }
 }
 
@@ -325,8 +325,8 @@ select:focus:required:invalid {
   margin-top: $baseLineHeight;
   margin-bottom: $baseLineHeight;
   background-color: $formActionsBackground;
-  border-top: 1px solid #ddd;
-  @include clearfix();
+  border-top: 1px solid darken($grayLighter, 24);
+  @extend .clearfix;
 }
 
 // For text that needs to appear as an input but should not be an input
@@ -335,7 +335,7 @@ select:focus:required:invalid {
   white-space: nowrap;
   cursor: not-allowed;
   background-color: $inputBackground;
-  border-color: #eee;
+  border-color: $grayLighter;
   @include box-shadow(inset 0 1px 2px rgba(0,0,0,.025));
 }
 
@@ -399,7 +399,7 @@ select:focus:required:invalid {
     vertical-align: middle;
     text-shadow: 0 1px 0 $white;
     background-color: $grayLighter;
-    border: 1px solid #ccc;
+    border: 1px solid $grayccc;
   }
   .add-on,
   .btn {
@@ -429,8 +429,8 @@ select:focus:required:invalid {
     @include border-radius($inputBorderRadius 0 0 $inputBorderRadius);
   }
   .uneditable-input {
-    border-left-color: #eee;
-    border-right-color: #ccc;    
+    border-left-color: $grayLighter;
+    border-right-color: $grayccc;    
   }
   .add-on:last-child,
   .btn:last-child {
@@ -546,7 +546,7 @@ legend + .control-group {
   // Increase spacing between groups
   .control-group {
     margin-bottom: $baseLineHeight;
-    @include clearfix();
+    @extend .clearfix;
     .label-div & {
       margin-bottom: $baseLineHeight/4;
     }

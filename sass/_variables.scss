@@ -36,6 +36,8 @@ $tabproductimage_width_y: 216px !default;
 // urun detay sayfasi icin gerekli
 $productimage_width_x: 470px !default;
 $productimage_width_y: 470px !default;
+// urun detay sayfasi thumbnailleri
+$widthveradius: 45px !default;
 
 // Linkler
 $linkColor:             #08c !default;
@@ -72,7 +74,7 @@ $tableBorder:                       #ddd !default; // table border
 // Buttons
 $btnBackground:                     $white !default;
 $btnBackgroundHighlight:            darken($white, 10%) !default;
-$btnBorder:                         #ccc !default;
+$btnBorder:                         $grayccc !default;
 
 $btnPrimaryBackground:              $linkColor !default;
 $btnPrimaryBackgroundHighlight:     adjust-hue($btnPrimaryBackground, 15%) !default;
@@ -95,7 +97,7 @@ $btnInverseBackgroundHighlight:     $grayDarker !default;
 // Forms
 // -------------------------
 $inputBackground:               $white !default;
-$inputBorder:                   #ccc !default;
+$inputBorder:                   $grayccc !default;
 $inputBorderRadius:             3px !default;
 $inputDisabledBackground:       $grayLighter !default;
 $formActionsBackground:         $whiteDarker !default;
@@ -144,7 +146,7 @@ $navbarLinkBackgroundActive:      $navbarBackground !default;
 $navbarSearchBackground:          lighten($navbarBackground, 25%) !default;
 $navbarSearchBackgroundFocus:     $white !default;
 $navbarSearchBorder:              darken($navbarSearchBackground, 30%) !default;
-$navbarSearchPlaceholderColor:    #ccc !default;
+$navbarSearchPlaceholderColor:    $grayccc !default;
 $navbarBrandColor:                $navbarLinkColor !default;
 
 // Hero unit
@@ -168,14 +170,6 @@ $successBorder:           darken(adjust-hue($successBackground, -10), 5%) !defau
 $infoText:                #3a87ad !default;
 $infoBackground:          #d9edf7 !default;
 $infoBorder:              darken(adjust-hue($infoBackground, -10), 7%) !default;
-
-// GRID
-// ----
-
-// Default 940px grid
-$gridColumns:             10 !default;
-$gridColumnWidth:         68px !default;
-$gridGutterWidth:         24px !default;
 
 // Fluid grid
 $fluidGridColumnWidth:    4.3% !default;
