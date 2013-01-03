@@ -1,0 +1,104 @@
+// responsive screen scss
+@import "../../../../skeleton_v1/media/sass/partials/mixins";
+@import "susy";
+$experimental-support-for-khtml:false;
+$experimental-support-for-ms:false;
+$legacy-support-for-ie  : false;
+$legacy-support-for-ie6 : $legacy-support-for-ie;
+
+// variables alanindan gelenler overwrite edebilirsiniz
+
+// sistemin bekledigi degerler
+$stickyfooterheight: 		325px !default;
+// tabproduct productlist icin gerekli
+$tabproductimage_width_x: 228px !default;
+$tabproductimage_width_y: 436px !default;
+// urun detay sayfasi icin gerekli
+$productimage_width_x: 470px !default;
+$productimage_width_y: 470px !default;
+// urun detay sayfasi thumbnailleri
+$widthveradius: 45px !default;
+
+.corset {
+	#Header &,
+	#Nav &,
+	#Banner &,
+	#Content &,
+	#Footer & {
+		@include respond-to(miniphone) {
+			$column-width: 1.16em;
+			$gutter-width: 0.42em;
+			$total-columns: 12;
+			@include container;
+		}
+		@include respond-to(phone) {
+			$column-width: 2.32em;
+			$gutter-width: 0.84em;
+			$total-columns: 12;
+			@include container;
+		}
+		@include respond-to(tablet) {
+			$column-width: 3.49em;
+			$gutter-width: 1.24em;
+			$total-columns: 12;
+			@include container;
+		}
+	}
+}
+
+#ContentMiddleCol2, #ContentMiddleCol1 {
+	@include respond-to(miniphone) {	
+		@include yay;
+	}
+}
+
+.productDetails {
+	@include respond-to(miniphone) {	
+		@include span-columns(12,12);
+		@include container;
+		@include yay;
+	}
+	@include respond-to(phone) {	
+		@include span-columns(12,12);
+		@include container;
+		@include yay;
+	}
+	.productDesc, .productImages {
+		@include respond-to(miniphone) {	@include yay; }
+		@include respond-to(phone) {	@include yay; }
+	}
+}
+
+.productImageLink {
+	@include respond-to(phone) {	
+		$productimage_width_x: columns(11,12);
+		$productimage_width_y: columns(11,12);
+		width: $productimage_width_x;
+		height: $productimage_width_y;
+		#ProductImageSrc {
+			max-width: $productimage_width_x;
+			height: auto!important;
+		}
+	}
+}
+
+#footertabs {
+	@include respond-to(phone) {
+		$container-width: false;
+		$container-style: magic;
+		@include container;
+		&>div { @include yay; }
+	}
+}
+
+.tacirmahlas {
+	@include respond-to(phone) {
+		@include yay;
+	}
+}
+
+.tabProductLabels {
+	@include respond-to(miniphone) {
+		display:none;
+	}
+}

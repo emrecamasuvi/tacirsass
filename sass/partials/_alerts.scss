@@ -8,14 +8,10 @@
   text-shadow: 0 1px 0 rgba(255,255,255,.5);
   background-color: $warningBackground;
   border: 1px solid $warningBorder;
-  @include border-radius(4px);
-  .content+& {
-    margin: 4em auto;
-  }
-}
-.alert,
-.alert-heading {
-  color: $warningText;
+  @include border-radius($baseBorderRadius);
+  .content+& {margin: 4em auto;}
+  h4 {margin: 0;}
+  &, .alert-heading {color: $warningText;}
 }
 
 // Adjust close link position
@@ -23,7 +19,7 @@
   position: relative;
   top: -2px;
   right: -21px;
-  line-height: 18px;
+  line-height: $baseLineHeight;
 }
 
 // Alternate styles
@@ -32,29 +28,23 @@
 .alert-success {
   background-color: $successBackground;
   border-color: $successBorder;  
+  &, .alert-heading {
+    color: $successText;
+  }
 }
-.alert-success,
-.alert-success .alert-heading {
-  color: $successText;
-}
-.alert-danger,
-.alert-error {
+.alert-danger, .alert-error {
   background-color: $errorBackground;
   border-color: $errorBorder;
-}
-.alert-danger,
-.alert-error,
-.alert-danger .alert-heading,
-.alert-error .alert-heading {
-  color: $errorText;
+  &, .alert-heading {
+    color: $errorText;
+  }
 }
 .alert-info {
   background-color: $infoBackground;
   border-color: $infoBorder;
-}
-.alert-info,
-.alert-info .alert-heading {
-  color: $infoText;
+  &, .alert-heading {
+    color: $infoText;
+  }
 }
 
 
@@ -63,7 +53,6 @@
 .alert-block {
   padding-top: 14px;
   padding-bottom: 14px;
-}
-.alert-block p + p {
-  margin-top: 5px;
+  &>p, &>ul {margin-bottom: 0;}
+  p + p { margin-top: 5px;}
 }

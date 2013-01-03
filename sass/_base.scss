@@ -48,18 +48,16 @@ ayrica sass'in compass ve susy gemleri yuklu olmali
 
 // Components: Misc
 @import "../../../../skeleton_v1/media/sass/partials/thumbnails";
+@import "../../../../skeleton_v1/media/sass/partials/media";
 @import "../../../../skeleton_v1/media/sass/partials/type";
-@import "../../../../skeleton_v1/media/sass/partials/badges";
-@import "../../../../skeleton_v1/media/sass/partials/labels";
+@import "../../../../skeleton_v1/media/sass/partials/labels-badges";
 @import "../../../../skeleton_v1/media/sass/partials/progress-bars";
 @import "../../../../skeleton_v1/media/sass/partials/accordion";
 @import "../../../../skeleton_v1/media/sass/partials/carousel";
 @import "../../../../skeleton_v1/media/sass/partials/hero-unit";
 
 // esnek web
-@media (min-width: 240px) {
-	@import "../../../../skeleton_v1/media/sass/partials/responsive";
-}
+@import "../../../../skeleton_v1/media/sass/partials/responsive";
 
 // Utility classes
 @import "susy"; // susy grid

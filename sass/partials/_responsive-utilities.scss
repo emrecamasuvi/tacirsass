@@ -11,6 +11,8 @@
   visibility: hidden;
 }
 
+
+
 // Visibility utilities
 
 // For desktops
@@ -22,7 +24,7 @@
 .hidden-desktop    { display: none !important; }
 
 // Phones only
-@media (max-width: 767px) {
+@include respond-to(phone) {
   // Show
   .visible-phone     { display: inherit !important; } // Use inherit to restore previous behavior
   // Hide
@@ -33,7 +35,7 @@
 }
 
 // Tablets & small desktops only
-@media (min-width: 768px) and (max-width: 979px) {
+@include respond-to(tablet) {
   // Show
   .visible-tablet    { display: inherit !important; }
   // Hide

@@ -1,4 +1,6 @@
 // Degiskenler baseden gelir
+// en sonda da responsive-screen dosyasi var 
+// responsive calisacaksiniz, o dosyayi da duzenlemeniz gerek
 @import "base";
 
 .corset {
@@ -7,12 +9,11 @@
 	#Banner &,
 	#Content &,
 	#Footer & {
-		$total-columns: 12;
-		$column-width: 4.65em;
-		$gutter-width: 1.65em;
 		background: $white;
+		$total-columns: 12;
+		$column-width: 4.5em;
+		$gutter-width: 1.5em;
 		@include container;
-		@extend .clearfix;
 	}
 	#Content & {
 		$total-columns: 24;
@@ -21,9 +22,6 @@
 	}
 	#Nav & {
 		overflow: visible;
-	}
-	#Product #Content & {
-		$container-width: 100%;
 	}
 }
 
@@ -63,7 +61,7 @@
 	@include post(1);
 }
 
-#Header h1 {
+#tacirnetlogo {
 	@include hide-text;
 }
 
@@ -144,7 +142,7 @@
 #checopy, #Error404, #PaymentFail, #PaymentSuccess {
 	.well {
 		margin: 1.2em;
-		font-size: 200%;    
+		font-size: 1.4em;    
 	}
 }
 
@@ -204,6 +202,7 @@
  @include span-columns(5 omega, 12);
  @include inline-block-list(0);
  clear: both;
+ li {float: right}
 }
 
 // ust usermenu
@@ -230,7 +229,6 @@
 	$grid-padding: 0;
 	$total-columns: 12;
 	@include container;
-	@extend .clearfix;
 	.tabProduct {
 		@include span-columns(4, 12);
 		min-height: ($tabproductimage_width_y * 3) / 2;
@@ -243,7 +241,12 @@
 	}
 }
 .tabContent, .tabProductImage, .tabListProductimg, .posrel { position: relative; }
-.tabC { padding: $baseFontSize 0; }
+.tabC {
+	padding: $baseFontSize 0;
+	#ProductTabs & {
+		max-width: 98%;
+	}
+}
 
 // productlist urun gorunumu
 .tabProductImage a  {
@@ -260,8 +263,8 @@
 }
 
 .tabProductLabels {
-	width:$tabproductimage_width_x;
-	height:$tabproductimage_width_y;
+	width: 100%;
+	height: $tabproductimage_width_y;
 	.tabListProductimg & {
 		width: 100%;
 		height: 100%;
@@ -305,7 +308,7 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 }
 .cmsmenu 
 .cmsmenu ul li                { display:block; float:none; width:196px; height: 30px }
-.cmsmenu li a               { display:block; width:100%; height: 100%; line-height:30px }
+.cmsmenu li a               { @extend .blocklink; line-height:30px }
 .cmsmenu ul  { position:absolute; left:0; top:30px; width:196px; z-index: 1001; }
 .cmsmenu ul ul                { left:108%; top:0 }
 .cmsmenu ul ul ul             { left:216%; top:0 }
@@ -313,6 +316,7 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 .cmsmenu ul li a              { width:196px; height: auto; float:left; }
 
 .flexslider {position:relative;}
+.flexslider { -webkit-transform: translateZ(0)!important; -moz-transform: translateZ(0); -ms-transform: translateZ(0); transform: translateZ(0); }
 .flexslider .slides li:first-child  {display:block}
 
 // genel gizli hide edilmis alanlar
@@ -331,16 +335,22 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 .accordion ul a:hover, .accordion ul a.active { border-color: $grayccc }
 .accordion .dcjq-icon {float:right; display:block; padding: 0 8px 0 12px; width:8px; margin: -28px 0 0 0; text-align:center; font-weight:bold; opacity:0.5}
 .tacirnews li { padding: 0 5px 5px; line-height: 24px; margin: 5px auto; border-bottom: 1px dotted $grayLighter}
+.tacirnews a {@extend .blocklink;}
 
 /*  Category Pullmenu */
-.pullmenu { position: relative; z-index: 9996; padding: 10px 0; }
-.pullmenu ul, .pullmenu li:hover ul ul, .pullmenu li:hover li:hover ul ul, .pullmenu li:hover li:hover li:hover ul ul, .pullmenu li:hover li:hover li:hover li:hover ul ul { position: absolute; left: -999em; top: -999em; }
-.pullmenu  ul { width: 198px}
-.pullmenu li { position: relative; z-index: 991; line-height: 2; }
-.pullmenu li a  { display: block; padding: 0 10px; }
-.pullmenu li:hover ul { left: 189px; top: 0; width: 179px; padding-left: 10px; height: auto; z-index: 300; }
-.pullmenu li:hover ul li a { white-space: nowrap; background-color: $white; }
-.pullmenu li:hover li:hover ul, .pullmenu li:hover li:hover li:hover ul, .pullmenu li:hover li:hover li:hover li:hover ul, .pullmenu li:hover li:hover li:hover li:hover li:hover ul { left: 177px; top: 0px; white-space: nowrap; width: 178px; z-index: 400}
+.pullmenu { position: relative; z-index: 9996; padding: 10px 0; background: $whiteDark; padding: 1px; border-radius: 3px}
+.pullmenu ul, .pullmenu li:hover ul { position: absolute; left: -999em; top: -999em; }
+.pullmenu ul { width: 190px}
+.pullmenu li { position: relative; z-index: 991; padding: 0 5px; line-height: $baseLineHeight*2;}
+.pullmenu li>a  { display: block; padding: 0 10px; }
+.pullmenu li:hover>ul { top: 0; height: auto; left: 180px; top: 0; white-space: nowrap; width: 100%; z-index: 400}
+.pullmenu li:hover ul>li { padding-left: 10px; }
+.pullmenu li:hover li>a { white-space: nowrap; background-color: $white; }
+.pullmenu>li {
+	border-bottom: 1px solid $grayccc; border-top: 1px solid $white;
+	&:first-child {border-top: 0;}
+	&:last-child {border-bottom: 0;}
+}
 .manipulatedslct {float:left; display:inline; margin-right: 12px; width: auto}
 
 /* Filtreleme */
@@ -360,24 +370,32 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 .sepetim {
 	width:308px; @include background-opacity($white, 0.96); position:absolute; z-index:10011; left:0; right:0; top:0; margin: auto; @include box-shadow(0 0 6px rgba(0, 0, 0, 0.6));
 }
-.sepetim p  {margin:0}
 .sepetim, .sepetim .enalt, .sepetim .enust  {@include border-bottom-left-radius(4px); @include border-bottom-right-radius(4px);}
-.sepetim .enalt { background-color: $whiteDarker; border: 0; @include box-shadow(inset 0 2px 2px rgba(0, 0, 0, 0.05)); color:$blue; text-align:center; margin:0; width:100%; overflow:hidden}
-.sepetim .enalt a, .sepetim-bos {display:block; width:100%; height:100%; line-height: 32px}
-.sepetim .enalt a {width:50%; float:left}
-.sepetim .enust { background-color: $whiteDarker; border: medium none; width:100%; text-align:center}
-.sepetim .sepetim-urun { width:298px; overflow:hidden; border-bottom:1px solid $grayLighter; border-top: 1px solid $white; cursor:pointer; padding:5px; position:relative }
+.sepetim .enalt {
+	background-color: $whiteDarker; border: 0; margin:0; width:100%; overflow:hidden; padding: 4px 0;
+	@include box-shadow(inset 0 2px 2px rgba(0, 0, 0, 0.05));
+	.input-append {margin: 0 8px 0 12px;}
+	.btn {width: 42%;}
+}
+.sepetim-bos {@extend .blocklink; line-height: 32px}
+.sepetim .enust { background-color: $whiteDarker; border: none; width:100%; text-align:center}
+.sepetim .sepetim-urun { width:298px; border-bottom:1px solid $grayLighter; border-top: 1px solid $white; cursor:pointer; padding:5px; position:relative }
 .sepetim .sepetim-urun:hover { background-color:$whiteDarker }
-.sepetim .sepetim-urun-sil {position:absolute; right:4px; top:4px;}
-.sepetim .sepetim-urun-sil a {display:block; width:100%; height:100% }
+.sepetim .sepetim-urun-sil {
+	position:absolute; right:4px; top:4px; margin: 0;
+	a { @extend .blocklink; }
+}
+.sepetim .sepetim-urun-sil 
 .sepetim .deletegui {width:24px}
 .sepetim .deletegui a {background: $red; color: $white; @include border-radius(6px); text-align: center;}
 .sepetim .resim {float:left; margin: 0 10px 0 4px; border:1px solid $grayLighter}
-.sepetim .ozellikler {float:left}
+.sepetim .ozellikler {
+	float:left;
+	li {font-size: 12px; line-height: 18px}
+}
 .sepetim .adet {display:inline-block; margin-right: 8px}
-.sepetim .ozellikler li {font-size: 12px; line-height: 18px}
 .sepetim .urunadi {width: 212px }
-.sepetim .sepetim-over, .flexslider, .noslides { overflow:hidden}
+.sepetim-over, .flexslider, .noslides, .sepetim-urun { overflow:hidden}
 .sepetim-bos { text-align:center}
 .sepete-eklendi, .sepete-ekleniyor { position:absolute; margin:-57px 0 0 78px; }
 
@@ -424,10 +442,12 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 #search-result ul#sonuc li:hover, #search-result ul#sonuc li.secili { height:28px; line-height:28px; background: #6981f8; @include background-image(linear-gradient(#6981f8, #3150f5)); color: $white; border-bottom: 1px solid #2641eb; border-top: 1px solid $white; text-shadow: 0 -1px 0 #2641eb;
 }
 
-#auto_submit                  {@extend .clearfix;}
+#auto_submit, .UrunBilgisiYorumTutucu {@extend .clearfix;}
+.category_view_options {
+	label {float:left; margin-right: 8px; line-height: 26px;}
+}
 .newuxselectC1, .newuxselectC2  {float:left; margin-top:1em}
-.newuxselectC2, .newuxselectC2 .labeled  {float:right}
-.newuxselectC1 .labeled, .newuxselectC2 .labeled {margin: 0; float:left}
+.newuxselectC2  {float:right}
 .categoryList .label              {padding: 4px 0}
 .newuxselectview  li              {float:left; margin: 0 4px 4px 0}
 .newuxselectview  li span  {padding: 4px 6px; margin-right: 8px; font-size: 84%; color: $grayLight;}
@@ -468,8 +488,14 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 			height: round($productimage_width_y*5/8);
 		}
 	}
+	.zoombilgilendirme {left: round($productimage_width_x/2) - 68}
 }
-.zoom {display: table-cell; vertical-align: middle; text-align: center}
+.bigImage {
+	cursor: -webkit-zoom-in; cursor: -moz-zoom-in;
+	.noCursor & {cursor: default}
+}
+.zoom {display: table-cell; vertical-align: middle; text-align: center; position: relative}
+.zoombilgilendirme {position: absolute; display: inline-block; padding: 8px 16px; bottom: 40px; z-index: 2}
 
 #Product .productImageThumbC                                { position: relative; width: 153px; margin: 0 auto; }
 #Product .productImageThumbnails { width: 153px; height: 53px; margin: 0 auto 1.6667em auto; overflow: hidden; position: relative; }
@@ -484,9 +510,10 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 #Product .thumbNavigation a.tRightButton    { right: -46px; }
 #Product .thumbNavigationV a        { left: 0; right: 0; top: -48px}
 #Product .thumbNavigationV a.tRightButton    { top: auto; bottom: -51px}
-#quantity   {padding: 9px 4px; height: 17px; line-height:17px; text-align: center;}
+#quantity   {padding: 9px 4px; text-align: center;}
 #Product .marketprice .labeled                { text-decoration: line-through }
-#Product .addToBasketBtnC  { width: 100%; overflow: hidden; margin: 1.667em 0 1.667em }
+#Product .productActions  { margin-bottom: $baseLineHeight; }
+#Product .addToBasketBtnC  { width: 100%; overflow: hidden; }
 .tcretiketler               {float:right; width:32px; height:32px; text-indent: -9999em; margin: 0 8px 0 0}
 .stock {position:relative}
 #Product .sociallist  {width:170px}
@@ -495,16 +522,12 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 .plusbutton   { width:34px; margin-left:2px }
 .detaysecondaryactions { @include inline-block-list(10px) }
 .detaysecondaryactions li:first-child { padding-left: 0; }
-#ratingcontainer {position: relative;}
-#detayrating, #id_rating, #listeme-ekle {color: $grayccc;}
-#sondetayrating {color: $linkColorHover;}
-#id_rating {position: absolute; left: 10px; top: 0; z-index: 2;}
+#id_rating, #listeme-ekle {color: $grayccc;}
 #id_rating i:hover, #id_rating i.hovered, #listeme-ekle:hover {color: $linkColor;}
 #buna-bayildim i {font-size: 80%;}
 #buna-bayildim:hover {color: $pink;}
 #buna-bayildim { @include transition(color .6s ease-in); }
 .bunabayildiyenler { display:inline-block; padding: 0 3px; @include css-arrow(left, round($baseLineHeight/4), $grayLighter, 1px, solid); font-style: normal; margin-left: 8px}
-.UrunBilgisiYorumTutucu {@extend .clearfix}
 .userreviewer {@include span-columns(2,12); display: table}
 .userreviewcomment {@include span-columns(9 omega,12); padding: $baseLineHeight/2 $baseLineHeight; @include css-arrow(left, round($baseLineHeight), $whiteDarker, 1px, solid);
 	&:before, &:after {top: $baseLineHeight*2;}
@@ -534,16 +557,21 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 		@include border-radius($widthveradius/2);
 	}
 }
+#Variations {
+	margin-top: 1em;
+	h3 {margin: .5em 0;}
+	.formLine {@extend .clearfix;}
+}
 #Variations .varyasyon_secimler li  {float: left; margin: 0 6px 6px 0; position: relative;}
 #Variations .varyasyon_secim  {position: absolute; left: $widthveradius/4; top: $widthveradius/2; z-index: 2;}
 #Variations .resimsizvaryasyon .varyasyon_secim  {position: relative; left: auto; top: auto; z-index: 2;}
 #Variations .varyasyon_secimler a.varyasyonresim {display:block; text-align:center; padding:0; background:$white}
-#Variations .varyasyon_secimler a.selected + a.varyasyonresim {border-color: $gray}
-#Product .productImageThumbnails li.current a   { border-color: $gray }
+#Variations .varyasyon_secimler a.selected + a.varyasyonresim, #Product .productImageThumbnails li.current a {border-color: $gray}
 #Product .productImageThumbnails li a:hover     { border-color: $grayDark }
 
 #Product .varyasyonstokyok            {@include opacity(.4);}
 #Product .varyasyonstokyok:hover        {background: transparent}
+#Product .yenivaryasyontitle        {margin-top: 0;}
 #ProductDesc ul, #ProductDesc ol   { margin: 0 0 1.1250em 1.1250em; padding: 0; line-height: 1.5; }
 #Product .productDescription { margin: 0 0 1em }
 
@@ -552,7 +580,6 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 	$grid-padding: 0;
 	$total-columns: 17;
 	@include container;
-	@extend .clearfix;
 	li {
 		@include span-columns(4, 17);
 	}
@@ -568,11 +595,12 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 	@include container;
 }
 
-.urundetaytaksit_ozet               { position:relative; top:0; left: 1px; z-index: 2}
+.urundetaytaksit_ozet               { position:relative; top:0; left: 4px; z-index: 2}
 .urundetaytaksit_ozet li            {display:block; width:100%; float:left; height:52px; background: $whiteDarker; border: 1px solid $grayLighter; border-right: 0; border-left-width: 4px}
 .urundetaytaksit_ozet li.active     { background: $white }
-.urundetaytaksit_ozet a           {display:block; height:100%; width:200px; padding: 2px 0 2px 56px; line-height:48px; white-space:nowrap; color: $blue; background-position: 2px center}
+.urundetaytaksit_ozet a           {display:block; height:100%; max-width:100%; padding: 2px 0 2px 56px; line-height:48px; white-space:nowrap; color: $blue; background-position: 2px center; overflow: hidden; text-overflow: ellipsis;}
 .check-date .controls {position:relative}
+.hizliuyegiris .btn-primary {padding-top: 6px; padding-bottom: 6px;}
 
 
 // bu renkleri degistirmeyin bankalarin kurumsal renkleridir
@@ -611,7 +639,6 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 #footertabs {
 	$total-columns: 15;
 	@include container;
-	@extend .clearfix;
 	&>div {
 		@include span-columns(3, 15);
 	}
@@ -619,9 +646,9 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 	 @include post(0); 
 	}
 }
-#Footer .tacirnet, #Footer .darktacirnet, #Footer .rapidssl, #Footer .darkrapidssl, #Footer .html5icon, #Footer .darkhtml5icon {display:block; float: left; text-indent: -9999em; width: 104px; height:26px; background: image_url("logos/tacirnetimza.png") no-repeat scroll -194px 0 transparent}
-#Footer .rapidssl, #Footer .darkrapidssl { width:112px; margin-right: 16px; float:left; background-position: 0 0}
-#Footer .html5icon, #Footer .darkhtml5icon { width:76px; margin-right: 16px; float:left; background-position: -112px 0}
+#Footer .tacirnet, #Footer .darktacirnet, #Footer .rapidssl, #Footer .darkrapidssl, #Footer .html5icon, #Footer .darkhtml5icon {display:block; text-indent: -9999em; width: 104px; height:26px; background: image_url("logos/tacirnetimza.png") no-repeat scroll -194px 0 transparent}
+#Footer .rapidssl, #Footer .darkrapidssl { width:112px; margin-right: 16px; background-position: 0 0}
+#Footer .html5icon, #Footer .darkhtml5icon { width:76px; margin-right: 16px; background-position: -112px 0}
 #Footer .darktacirnet, #Footer .darkrapidssl, #Footer .darkhtml5icon {background-image: image_url("logos/darktacirnetimza.png")}
 .highlight { background-color: lighten($linkColor, 25) }
 .hilite, #banklogo a:hover, .checkfiltreleme label:hover, .inlinefiltreleme label:hover {color: lighten($linkColor, 10)}
@@ -630,6 +657,9 @@ body { width:100%; -webkit-font-smoothing: antialiased }
 /*  Box, simple, tabbox   */
 .tabBox .tabNavC, .module .moduleTitle  { background: $whiteDark; clear:both; }
 .accordion ul a:hover, .accordion ul a.active { color: $blueDark; }
+.combine-container {display: block; position: relative; overflow: hidden;}
+.kombinbtn {display: block; position: absolute; z-index: 2; color: $grayLight; background: $white; width: 16px; height: 16px; font-size: 14px; line-height: 16px; text-align: center; border-radius: 16px; @include box-shadow($grayccc 0 0 4px 2px);}
+#Category .popover-title {display:block; margin: 2px 0; color: $white;}
 
 
 /*  Header    */
@@ -650,6 +680,7 @@ a.next  {left: auto; right: 12px}
 .moreuserfriendly a {
 	border: 1px solid $grayccc; color: $grayLight; background: $grayLight; 
 	@include background-image(linear-gradient($grayLighter, $grayccc));
+	.no-rgba & {background-color: mix($grayLighter, $grayccc, 60%);}
 	text-shadow:  0 -1px 0 $white;
 	text-align: center;
 }
@@ -670,3 +701,9 @@ a.next  {left: auto; right: 12px}
 		}
 	}
 }
+
+
+
+
+// responsive isteyen siteler icin alttaki dosyadan calisin
+@import "responsive-screen";

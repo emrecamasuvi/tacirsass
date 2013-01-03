@@ -72,14 +72,14 @@
 
   // Padding to set content in a bit
   body {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: $baseFontSize/2;
+    padding-right: $baseFontSize/2;
   }
   // Negative indent the now static "fixed" navbar
   .navbar-fixed-top,
   .navbar-fixed-bottom {
-    margin-left: -20px;
-    margin-right: -20px;
+    margin-left: -$baseFontSize/2;
+    margin-right: -$baseFontSize/2;
   }
   // Remove padding on container given explicit padding set on body
   .container-fluid {
